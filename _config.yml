@@ -6,7 +6,7 @@ deploy:
   repo: git@github.com:JasonJiangCN/jasonjiangcn.github.io.git
   branch: master
 #  Site
-title: Jason
+title: Jason's Blog
 subtitle: Just Another Hexo Website
 description:
 author: Jason Jiang
