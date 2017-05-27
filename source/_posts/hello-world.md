@@ -1,5 +1,6 @@
 ---
 title: 这是一篇文章
+thumbnail: thumbnail/helloworld.jpeg
 ---
 ## 欢迎
 
