@@ -40,6 +40,40 @@
   <article class="post">
     <header class="post-header">
       <span class="post-meta">
+      <time datetime="2017-05-27T12:19:32.000Z" itemprop="datePublished">
+          2017-05-27
+      </time>
+    
+</span>
+      <h2 class="post-title"><a href="/2017/05/27/crawler/">Python爬虫笔记</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        简单爬虫架构爬虫调度端 —&gt; url管理器 —&gt;网页下载器 —&gt; 网页解析器 —&gt; 有价值的数据
+只要有相关的url 中间的爬虫架构会一直运行下去
+运行流程
+URL 管理器防止重复抓取和循环抓取
+实现方式第一种：将待爬取的放在内存里
+e.g.. 在py中放在两个set里
+第二种：放在关系数据库里
+urls(url,is_crawled)
+第三种：缓存数据库
+两个set 已爬取和待爬去
+网页下载器将url对应的网页
+      
+      </p>
+      
+      <p>
+          <a href="/2017/05/27/crawler/" class="excerpt-link">Read More...</a>
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
       <time datetime="2017-05-23T16:11:04.000Z" itemprop="datePublished">
           2017-05-24
       </time>
