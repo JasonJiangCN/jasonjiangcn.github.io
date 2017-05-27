@@ -2,7 +2,7 @@
 title: JavaScript笔记
 date: 2017-05-24 00:11:04
 tags:
-thumbnail: /thumbnail/js.png
+thumbnail: https://image.ibb.co/mhBBkv/js.png
 ---
 
 #  
