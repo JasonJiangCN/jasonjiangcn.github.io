@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Python爬虫笔记 | Jason&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="简单爬虫架构爬虫调度端 —&amp;gt; url管理器 —&amp;gt;网页下载器 —&amp;gt; 网页解析器 —&amp;gt; 有价值的数据 只要有相关的url 中间的爬虫架构会一直运行下去 运行流程 URL 管理器防止重复抓取和循环抓取 实现方式第一种：将待爬取的放在内存里 e.g.. 在py中放在两个set里 第二种：放在关系数据库里 urls(url,is_crawled) 第三种：缓存数据库 两个set 已爬">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬虫笔记">
+<meta property="og:url" content="http://jasonjx.com/2017/05/27/crawler/index.html">
+<meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="简单爬虫架构爬虫调度端 —&amp;gt; url管理器 —&amp;gt;网页下载器 —&amp;gt; 网页解析器 —&amp;gt; 有价值的数据 只要有相关的url 中间的爬虫架构会一直运行下去 运行流程 URL 管理器防止重复抓取和循环抓取 实现方式第一种：将待爬取的放在内存里 e.g.. 在py中放在两个set里 第二种：放在关系数据库里 urls(url,is_crawled) 第三种：缓存数据库 两个set 已爬">
+<meta property="og:image" content="https://image.ibb.co/hRpHav/IMG_0005.png">
+<meta property="og:updated_time" content="2017-05-27T16:41:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python爬虫笔记">
+<meta name="twitter:description" content="简单爬虫架构爬虫调度端 —&amp;gt; url管理器 —&amp;gt;网页下载器 —&amp;gt; 网页解析器 —&amp;gt; 有价值的数据 只要有相关的url 中间的爬虫架构会一直运行下去 运行流程 URL 管理器防止重复抓取和循环抓取 实现方式第一种：将待爬取的放在内存里 e.g.. 在py中放在两个set里 第二种：放在关系数据库里 urls(url,is_crawled) 第三种：缓存数据库 两个set 已爬">
+<meta name="twitter:image" content="https://image.ibb.co/hRpHav/IMG_0005.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Jason&#39;s Blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Jason&#39;s Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/personal_img/Terminal-icon.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/personal_img/Terminal-icon.png" />
+            <h2 id="name">Jason Jiang</h2>
+            <h3 id="title">CS Major Student</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Madison, WI, U.S.</span>
+            <a id="follow" target="_blank" href="https://github.com/JasonJiangCN/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                3
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                0
+                <span>tag</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/JasonJiangCN" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.facebook.com/jiangxincn" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-crawler" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Python爬虫笔记
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/05/27/crawler/">
+            <time datetime="2017-05-27T12:19:32.000Z" itemprop="datePublished">2017-05-27</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="简单爬虫架构"><a href="#简单爬虫架构" class="headerlink" title="简单爬虫架构"></a>简单爬虫架构</h1><p>爬虫调度端 —&gt; url管理器 —&gt;网页下载器 —&gt; 网页解析器 —&gt; 有价值的数据</p>
+<p>只要有相关的url 中间的爬虫架构会一直运行下去</p>
+<h2 id="运行流程"><a href="#运行流程" class="headerlink" title="运行流程"></a>运行流程</h2><p><img src="https://image.ibb.co/hRpHav/IMG_0005.png" alt=""></p>
+<h1 id="URL-管理器"><a href="#URL-管理器" class="headerlink" title="URL 管理器"></a>URL 管理器</h1><p>防止重复抓取和循环抓取</p>
+<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><p>第一种：将待爬取的放在内存里</p>
+<p>e.g.. 在py中放在两个set里</p>
+<p>第二种：放在关系数据库里</p>
+<p>urls(url,is_crawled)</p>
+<p>第三种：缓存数据库</p>
+<p>两个set 已爬取和待爬去</p>
+<h1 id="网页下载器"><a href="#网页下载器" class="headerlink" title="网页下载器"></a>网页下载器</h1><p>将url对应的网页下载下来</p>
+<p>以html的格式存到本地</p>
+<h2 id="python的下载器"><a href="#python的下载器" class="headerlink" title="python的下载器"></a>python的下载器</h2><ol>
+<li>urllib2 py官方的</li>
+<li>requests 第三方 更强大</li>
+</ol>
+<h2 id="urllib2-的使用"><a href="#urllib2-的使用" class="headerlink" title="urllib2 的使用"></a>urllib2 的使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2</div><div class="line"><span class="comment">#直接请求</span></div><div class="line">response = urllib2.urlopen(<span class="string">"http://www.baidu.com"</span>)</div><div class="line"><span class="comment">#获取状态码 如果为200则成功</span></div><div class="line"><span class="keyword">print</span> response.getCode()</div><div class="line"><span class="comment">#读取内容</span></div><div class="line">cont = response.read()</div></pre></td></tr></table></figure>
+<h2 id="urllib2-运行by-data-amp-http-header"><a href="#urllib2-运行by-data-amp-http-header" class="headerlink" title="urllib2 运行by data &amp; http header"></a>urllib2 运行by data &amp; http header</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2</div><div class="line"><span class="comment">#创建request对象</span></div><div class="line">request = urllib2.Request(url)</div><div class="line"><span class="comment">#添加数据</span></div><div class="line">request.add_data(<span class="string">'a'</span>,<span class="string">'1'</span>)</div><div class="line"><span class="comment">#添加http的header</span></div><div class="line">request.add_header(<span class="string">'User-Agent'</span>,<span class="string">'Mozilla/5.0'</span>)</div><div class="line"><span class="comment">#发送请求</span></div><div class="line">response = urllib2.urlopen(request)</div></pre></td></tr></table></figure>
+<h2 id="添加特殊情景的处理器"><a href="#添加特殊情景的处理器" class="headerlink" title="添加特殊情景的处理器"></a>添加特殊情景的处理器</h2><ol>
+<li>HTTPCookieProcessor</li>
+<li>ProxyHandler</li>
+<li>HTTPSHandler</li>
+<li>HTTPRedirectHandler</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2,cookielib</div><div class="line"><span class="comment">#创建cookie容器</span></div><div class="line">cj = cookielib.CookieJar()</div><div class="line"><span class="comment"># 创建一个opener</span></div><div class="line">opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))</div><div class="line"><span class="comment">#给urllib2安装opener</span></div><div class="line">urllib2.install_opener(opener)</div><div class="line"><span class="comment">#使用带有cookie的urllib2访问网页</span></div><div class="line">response = urllib2.urlopen(<span class="string">"http://www.baidu.com"</span>)</div></pre></td></tr></table></figure>
+<h1 id="网页解析器"><a href="#网页解析器" class="headerlink" title="网页解析器"></a>网页解析器</h1><p>用来提取有价值数据的工具</p>
+<p>Python中</p>
+<ol>
+<li>正则表达式 （字符串形式的模糊匹配</li>
+<li>html.parser 官网</li>
+<li>Beautiful soup 兼容2和4</li>
+<li>lxml</li>
+</ol>
+<p>2，3，4是结构化解析（DOM树</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install beautifulsoup4</div><div class="line">#Install beautifulsoup4</div></pre></td></tr></table></figure>
+<h2 id="Beatuiful-Soup"><a href="#Beatuiful-Soup" class="headerlink" title="Beatuiful Soup"></a>Beatuiful Soup</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span> = <span class="string">'123.html'</span> <span class="attr">class</span>=<span class="string">'article_link'</span>&gt;</span>Python<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</div><div class="line">soup = BeautifulSoup(</div><div class="line">					html_doc, <span class="comment">#HTML文档字符串</span></div><div class="line">					<span class="string">'html.parser'</span> <span class="comment">#HTML解析器</span></div><div class="line">					from_encoding=<span class="string">'utf-8'</span> <span class="comment">#HTML文档的编码</span></div><div class="line">)</div></pre></td></tr></table></figure>
+<h3 id="搜索节点"><a href="#搜索节点" class="headerlink" title="搜索节点"></a>搜索节点</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># soup.find_all(name,arrts,string)</span></div><div class="line"><span class="comment">#查找所有标签为a的节点</span></div><div class="line">soup.find_all(<span class="string">'a'</span>)</div><div class="line"><span class="comment">#查找所有标签为a，连接符合/view/123.htm形式的节点</span></div><div class="line">soup.find_all(<span class="string">'a'</span>,href=<span class="string">'/view/123.htm'</span>)</div><div class="line">soup.find_all(<span class="string">'a'</span>,href=re.compile(<span class="string">r'/view/\d+\.htm)) #使用正则表达式来匹配</span></div><div class="line">#查找所有标签为div，class为abc，文字为python的节点</div><div class="line">soup.find_all('div<span class="string">',class_='</span>abc<span class="string">',string="python")</span></div></pre></td></tr></table></figure>
+<h1 id="开发实例爬虫"><a href="#开发实例爬虫" class="headerlink" title="开发实例爬虫"></a>开发实例爬虫</h1><p>确定目标 —&gt; 分析目标 —&gt; [url格式，数据格式，网页编码] —&gt; 编写代码 —&gt; 执行爬虫</p>
+<h2 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#crawler_main.py</span></div><div class="line"><span class="comment">#从这个package中import</span></div><div class="line"><span class="keyword">from</span> nameOfCurrentPackage <span class="keyword">import</span> url_manager,html_downloader,html_parser,html_outputer</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CrawlerMain</span><span class="params">(object)</span>:</span></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.urls = url_manager.UrlManager()</div><div class="line">        self.downloader = html_downloader.HtmlDownloader()</div><div class="line">        self.parser = html_parser.HtmlParser()</div><div class="line">        self.outputer - html_outputer.HtmlOutputer()</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">craw</span><span class="params">(self, root_url)</span>:</span></div><div class="line">        count = <span class="number">1</span></div><div class="line">        self.urls.add_new_url(root_url)</div><div class="line">        <span class="keyword">while</span> self.urls.has_new_url():</div><div class="line">            <span class="keyword">try</span>:</div><div class="line">            	new_url = self.urls.get_new_url()</div><div class="line">            	<span class="keyword">print</span> <span class="string">'craw %d : %s'</span> %(count,new_url)</div><div class="line">            	html_cont = self.downloader.download(new_url)</div><div class="line">            	new_urls, new_data = self.parser.parse(newurl,html_cont)</div><div class="line">           		self.urls.add_new_urls(new_urls)  <span class="comment">#补充新的url</span></div><div class="line">            	self.outputer.collect_data(new_data)</div><div class="line">            	count = count + <span class="number">1</span></div><div class="line">            <span class="keyword">except</span>:</div><div class="line">                <span class="keyword">print</span> <span class="string">'craw failed'</span></div><div class="line">        self.outputer.output_html()</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    root_url = <span class="string">"http://...."</span></div><div class="line">    obj_crawler = CrawlerMain()</div><div class="line">    obj_crawler.craw(root_url)</div></pre></td></tr></table></figure>
+<h2 id="UrlManager"><a href="#UrlManager" class="headerlink" title="UrlManager"></a>UrlManager</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UrlManager</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.new_urls = set()</div><div class="line">        self.old_urls = set()</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_new_url</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">if</span> url <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">if</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.newurls <span class="keyword">and</span> url <span class="keyword">not</span> <span class="keyword">in</span> self.old_urls:</div><div class="line">        	self.new_urls.add(url)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_new_urls</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">if</span> urls <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> len(urls) == <span class="number">0</span>:</div><div class="line">        	<span class="keyword">return</span></div><div class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> urls:</div><div class="line">            self.add_new_url(url)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_new_url</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> len(self.new_urls) != <span class="number">0</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_new_url</span><span class="params">(self)</span>:</span></div><div class="line">        new_url = self.new_urls.pop()</div><div class="line">        self.old_urls.add(new_url)</div><div class="line">        <span class="keyword">return</span> new_url</div></pre></td></tr></table></figure>
+<h2 id="HtmlDownloader"><a href="#HtmlDownloader" class="headerlink" title="HtmlDownloader"></a>HtmlDownloader</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HtmlDownloader</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download</span><span class="params">(self, url)</span>:</span></div><div class="line">        <span class="keyword">if</span> url <span class="keyword">is</span> none:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        response = urllib2.urlopen(url)</div><div class="line">        <span class="keyword">if</span> response.getCode() != <span class="number">200</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        <span class="keyword">return</span> response.read()</div></pre></td></tr></table></figure>
+<h2 id="HtmlParser"><a href="#HtmlParser" class="headerlink" title="HtmlParser"></a>HtmlParser</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HtmlParser</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get_new_urls</span><span class="params">(self,page_url,soup)</span>:</span></div><div class="line">        new_urls = set()</div><div class="line">        links = soup.find_all(<span class="string">'a'</span>, href=re.compile(<span class="string">r"///////"</span>))</div><div class="line">        <span class="keyword">for</span> link <span class="keyword">in</span> links:</div><div class="line">            new_url = link[<span class="string">"href"</span>]</div><div class="line">            <span class="comment"># 拼接url</span></div><div class="line">            new_full_url = urlparse.urljoin(page_url, new_url)</div><div class="line">            new_urls.add(new_full_url)</div><div class="line">        <span class="keyword">return</span> new_urls</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get_new_data</span><span class="params">(self, page_url, soup)</span>:</span></div><div class="line">        res_data = &#123;&#125;</div><div class="line">        res_data[<span class="string">'url'</span>] = page_url</div><div class="line">        title_node = soup.find(<span class="string">'标签'</span>, class_=<span class="string">''</span>).find(<span class="string">"h1"</span>)</div><div class="line">        res_data[<span class="string">'title'</span>] = title_node.get_text()</div><div class="line">        summary_node = soup.find(..........)</div><div class="line">        res_data[<span class="string">'summary'</span>] = summary_node.get_text()</div><div class="line">        <span class="keyword">return</span> res_data</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, page_url, html_cont)</span>:</span></div><div class="line">    <span class="keyword">if</span> page_url <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> html_cont <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">return</span> </div><div class="line">    soup = BeautifulSoup(html_cont, <span class="string">'html.parser'</span>, from_encoding=<span class="string">'utf-8'</span>)</div><div class="line">    new_urls = self._get_new_urls(page_url,soup)</div><div class="line">    new_data = self._get_new_data(page_url,soup)</div><div class="line">    <span class="keyword">return</span> new_urls, new_data</div></pre></td></tr></table></figure>
+<h2 id="HtmlOutputer"><a href="#HtmlOutputer" class="headerlink" title="HtmlOutputer"></a>HtmlOutputer</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HtmlOutputer</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.data = []</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">collect_data</span><span class="params">(self,data)</span>:</span></div><div class="line">        <span class="keyword">if</span> data <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        self.data.append(data)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">output_html</span><span class="params">(self)</span>:</span></div><div class="line">        fout = open(<span class="string">'output.html'</span>,<span class="string">'w'</span>) <span class="comment">#w为“写模式”</span></div><div class="line">        fout.write(<span class="string">"&lt;html&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;body&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;table&gt;"</span>)</div><div class="line">        </div><div class="line">        <span class="keyword">for</span> data <span class="keyword">in</span> self.data:</div><div class="line">            fout.write(<span class="string">"&lt;tr&gt;"</span>)</div><div class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span> % data[<span class="string">'url'</span>])</div><div class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span> % data[<span class="string">'title'</span>].encode(<span class="string">'utf-8'</span>))</div><div class="line">            fout.write(<span class="string">"&lt;td&gt;%s&lt;/td&gt;"</span> % data[<span class="string">'summary'</span>].encode(<span class="string">'utf-8'</span>))</div><div class="line">            fout.write(<span class="string">"&lt;/tr&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;/html&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;/body&gt;"</span>)</div><div class="line">        fout.write(<span class="string">"&lt;/table&gt;"</span>)</div></pre></td></tr></table></figure>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://jasonjx.com/2017/05/27/crawler/" data-id="cj37ksbyr0000zw6wo4v1gpal" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://jasonjx.com/2017/05/27/crawler/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/27/crawler/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/05/24/javascript-note/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">JavaScript笔记</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/05/27/crawler/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/05/27/crawler/" class="title">Python爬虫笔记</a></p>
+                            <p class="item-date"><time datetime="2017-05-27T12:19:32.000Z" itemprop="datePublished">2017-05-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/05/24/javascript-note/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/05/24/javascript-note/" class="title">JavaScript笔记</a></p>
+                            <p class="item-date"><time datetime="2017-05-23T16:11:04.000Z" itemprop="datePublished">2017-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/05/23/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/05/23/hello-world/" class="title">这是一篇文章</a></p>
+                            <p class="item-date"><time datetime="2017-05-23T07:28:05.000Z" itemprop="datePublished">2017-05-23</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 Jason Jiang<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://jasonjx.com/2017/05/27/crawler/';
+        
+        this.page.identifier = 'crawler';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
