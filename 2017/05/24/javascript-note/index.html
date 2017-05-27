@@ -8,7 +8,7 @@
     <meta name="description" content="函数函数声明与表达式匿名函数表达式 1234var func = function (a,b) &amp;#123;  //  //&amp;#125; 这种赋值给某个变量的函数不能在定义之前使用，而直接定义声明的函数可以放在任何地方 命名函数表达式名称作用于仅限于命名的时候。外部无法访问到。 （其实没什么鸟用 函数构造器使用new 或省略new 12var func = new Function(&apos;a&apos;,&apos;b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript笔记">
-<meta property="og:url" content="http://jxdashabi.com/2017/05/24/javascript-note/index.html">
+<meta property="og:url" content="http://jasonjx.com/2017/05/24/javascript-note/index.html">
 <meta property="og:site_name" content="Jason&#39;s Blog">
 <meta property="og:description" content="函数函数声明与表达式匿名函数表达式 1234var func = function (a,b) &amp;#123;  //  //&amp;#125; 这种赋值给某个变量的函数不能在定义之前使用，而直接定义声明的函数可以放在任何地方 命名函数表达式名称作用于仅限于命名的时候。外部无法访问到。 （其实没什么鸟用 函数构造器使用new 或省略new 12var func = new Function(&apos;a&apos;,&apos;b">
 <meta property="og:updated_time" content="2017-05-24T16:05:40.000Z">
@@ -80,7 +80,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -99,10 +99,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -133,7 +133,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -153,16 +153,16 @@
             <h2 id="name">Jason Jiang</h2>
             <h3 id="title">CS Major Student</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Madison, WI, U.S.</span>
-            <a id="follow" target="_blank" href="https://github.com/JasonJiangCN/">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://github.com/JasonJiangCN/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 3
-                <span>Entradas</span>
+                <span>posts</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>Etiqueta</span>
+                <span>tag</span>
             </div>
         </div>
         
@@ -277,7 +277,7 @@
 
 </div>
 
-    <a data-url="http://jxdashabi.com/2017/05/24/javascript-note/" data-id="cj37jacoq0002ca6wpkj3zwwp" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://jasonjx.com/2017/05/24/javascript-note/" data-id="cj37jacoq0002ca6wpkj3zwwp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -345,7 +345,7 @@
 
             
     
-        <a href="http://jxdashabi.com/2017/05/24/javascript-note/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jxdashabi.com/2017/05/24/javascript-note/">Comentarios</a>
+        <a href="http://jasonjx.com/2017/05/24/javascript-note/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/24/javascript-note/">Comments</a>
     
 
         </footer>
@@ -355,7 +355,7 @@
 <nav id="article-nav">
     
         <a href="/2017/05/27/crawler/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más nuevo</strong>
+            <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
                     Python爬虫笔记
@@ -365,7 +365,7 @@
     
     
         <a href="/2017/05/23/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Más viejo</strong>
+            <strong class="article-nav-caption">Older</strong>
             <div class="article-nav-title">这是一篇文章</div>
         </a>
     
@@ -393,7 +393,7 @@
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Recientes</h3>
+        <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -463,7 +463,7 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Archivos</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">3</span></li></ul>
         </div>
@@ -476,7 +476,7 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">Links</h3>
+        <h3 class="widget-title">links</h3>
         <div class="widget">
             <ul>
                 
@@ -507,7 +507,7 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://jxdashabi.com/2017/05/24/javascript-note/';
+            this.page.url = 'http://jasonjx.com/2017/05/24/javascript-note/';
         
         this.page.identifier = 'javascript-note';
     };
