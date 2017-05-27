@@ -2,7 +2,7 @@
 title: Python爬虫笔记
 date: 2017-05-27 20:19:32
 tags:
-thumbnail: thumbnail/python.jpeg
+thumbnail: /thumbnail/python.jpeg
 ---
 
 # 简单爬虫架构
