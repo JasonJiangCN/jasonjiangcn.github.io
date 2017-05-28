@@ -235,5 +235,3 @@ new RegExp("Jason").test("Hi, Jason"); //默认case-sensitive
 
 
 
-<iframe width="640" height="360" src="https://www.youtube.com/embed/7DG3kCDx53c?ecver=1" frameborder="0" allowfullscreen></iframe>
-
