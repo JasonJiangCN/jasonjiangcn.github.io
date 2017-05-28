@@ -252,6 +252,21 @@
 <p>一些特性：继承封装多态抽象</p>
 <h2 id="基于原型链的继承"><a href="#基于原型链的继承" class="headerlink" title="基于原型链的继承"></a>基于原型链的继承</h2><p>当使用函数声明时会有一个prototype对象</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">constructor</span>: Foo,</div><div class="line">	<span class="attr">__proto__</span>: <span class="built_in">Object</span>.prototype,</div><div class="line">	<span class="attr">x</span>:<span class="number">1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="改变prototype"><a href="#改变prototype" class="headerlink" title="改变prototype"></a>改变prototype</h2><p>动态的添加或删除一个属性</p>
+<p>已经创建的实例，指向的prototype是固定的</p>
+<p>当更改prototype为另一个对象后，已经实例化的对象的prototype不会改变</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">haha = <span class="keyword">new</span> a();</div><div class="line">a.prototype.x=<span class="number">1</span>;</div><div class="line">a.prototype = &#123;<span class="attr">y</span>:<span class="number">2</span>&#125;;</div><div class="line">haha.x; <span class="comment">//1</span></div><div class="line">haha.y; <span class="comment">//undefined</span></div></pre></td></tr></table></figure>
+<p>此时再new一个实例，那prototype指向的对象就改变为新的</p>
+<p>！注意 只修改prototype的属性是会是实时影响的</p>
+<h2 id="实现继承"><a href="#实现继承" class="headerlink" title="实现继承"></a>实现继承</h2><p>不能</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Student.prototype = Person.prototype;</div><div class="line"><span class="comment">//当创建子类的独特属性时，这样赋值会把person的prototype也改掉</span></div></pre></td></tr></table></figure>
+<p>应该</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Student.prototype = <span class="built_in">Object</span>.create(Person.protype);</div><div class="line"><span class="comment">//创建一个空函数，把空函数的prototype属性指向Person.protype</span></div></pre></td></tr></table></figure>
+<h2 id="模拟重载"><a href="#模拟重载" class="headerlink" title="模拟重载"></a>模拟重载</h2><p>java中可以靠判断参数的类型和个数来判断使用同名的哪一个函数。</p>
+<p>但由于JavaScript是一个弱类型语言，没有直接的机制进行判断</p>
+<p>但可以通过判断arguments属性的长度和每个数值的类型来实现不同的功能</p>
+<h2 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h2><p>通过某个方法return this来返回当前对象，可以重复调用同一个方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Manager</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">Manager.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">  alert(added!)</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> manag = <span class="keyword">new</span> Manager();</div><div class="line">manager.add(<span class="string">'a'</span>).add(<span class="string">'b'</span>).add(<span class="string">'c'</span>);</div></pre></td></tr></table></figure>
 
         
         </div>
