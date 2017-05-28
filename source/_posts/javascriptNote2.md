@@ -177,6 +177,8 @@ Student.prototype = Person.prototype;
 ```javascript
 Student.prototype = Object.create(Person.protype);
 //创建一个空函数，把空函数的prototype属性指向Person.protype
+//然后应该重设构造器
+Student.prototype.constructor = Student;
 ```
 
 ## 模拟重载
@@ -200,4 +202,38 @@ Manager.prototype.add = function(str){
 var manag = new Manager();
 manager.add('a').add('b').add('c');
 ```
+
+# 正则表达式
+
+在常见的字符串检索或者替换的时候，我们需要提供一直模式检索或替换的规则。正则表达式使用单个字符串来描述匹配一系列符合某个句法规则的字符串
+
+```javascript
+/\d\d\d/.test("123"); //true
+/\d\d\d/.test("abc"); //false \d stands for number
+new RegExp("Jason").test("Hi, Jason"); //默认case-sensitive
+```
+
+| .          | 任意字符 除换行符\n \r \u | /…/.test("1a@")  |
+| ---------- | ----------------- | ---------------- |
+| \d         | 0-9               |                  |
+| \D         | 非\d               |                  |
+| \w         | 0-9或大小写字母或下划线     |                  |
+| \W         | 非\w               | /\W/.test("@")   |
+| \s         | 空格符TAB换页符换行符      | /\sa/.test(" a") |
+| \S         | 非\s               |                  |
+| \t\r\n\v\f | tab回车换行垂直制表符换页符   |                  |
+
+范围符号
+
+| [...]  | 字符范围   | [a-z], [0-9], [A-Z0-9a-z] |
+| ------ | ------ | ------------------------- |
+| [^...] | 字符范围以外 |                           |
+| ^      | 行首     | ^Hi（Hi在行首                 |
+| $      | 行尾     | test$                     |
+| \b     | 零宽单词边界 | \bno                      |
+| \B     | 非\b    |                           |
+
+
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/7DG3kCDx53c?ecver=1" frameborder="0" allowfullscreen></iframe>
 
