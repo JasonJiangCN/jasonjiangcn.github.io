@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>这是一篇文章 | Jason&#39;s Blog</title>
+    <title>Javascript笔记2 | Jason&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="欢迎欢迎来到我的Blog。 本站由Github Pages托管，由Hexo驱动。">
+    <meta name="description" content="函数和作用域闭包在一个函数里return了一个新的函数，当将return的函数赋值给一个变量时，这个外部的函数里的值未被释放，仍可以被访问。 //TODO 循环闭包的错误封装123456789101112(function()&amp;#123;  var ...  var ...  export.get... = function()&amp;#123;    return ..;  &amp;#125;  expor">
 <meta property="og:type" content="article">
-<meta property="og:title" content="这是一篇文章">
-<meta property="og:url" content="http://jasonjx.com/2017/05/28/hello-world/index.html">
+<meta property="og:title" content="Javascript笔记2">
+<meta property="og:url" content="http://jasonjx.com/2017/05/28/javascriptNote2/index.html">
 <meta property="og:site_name" content="Jason&#39;s Blog">
-<meta property="og:description" content="欢迎欢迎来到我的Blog。 本站由Github Pages托管，由Hexo驱动。">
-<meta property="og:image" content="https://image.ibb.co/gv0hsa/helloworld.jpg">
-<meta property="og:updated_time" content="2017-05-27T18:34:13.000Z">
+<meta property="og:description" content="函数和作用域闭包在一个函数里return了一个新的函数，当将return的函数赋值给一个变量时，这个外部的函数里的值未被释放，仍可以被访问。 //TODO 循环闭包的错误封装123456789101112(function()&amp;#123;  var ...  var ...  export.get... = function()&amp;#123;    return ..;  &amp;#125;  expor">
+<meta property="og:image" content="https://image.ibb.co/jSrEoF/1024.png">
+<meta property="og:updated_time" content="2017-05-28T05:39:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这是一篇文章">
-<meta name="twitter:description" content="欢迎欢迎来到我的Blog。 本站由Github Pages托管，由Hexo驱动。">
-<meta name="twitter:image" content="https://image.ibb.co/gv0hsa/helloworld.jpg">
+<meta name="twitter:title" content="Javascript笔记2">
+<meta name="twitter:description" content="函数和作用域闭包在一个函数里return了一个新的函数，当将return的函数赋值给一个变量时，这个外部的函数里的值未被释放，仍可以被访问。 //TODO 循环闭包的错误封装123456789101112(function()&amp;#123;  var ...  var ...  export.get... = function()&amp;#123;    return ..;  &amp;#125;  expor">
+<meta name="twitter:image" content="https://image.ibb.co/jSrEoF/1024.png">
     
 
     
@@ -191,7 +191,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-javascriptNote2" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -199,7 +199,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            这是一篇文章
+            Javascript笔记2
         </h1>
     
 
@@ -208,8 +208,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/05/28/hello-world/">
-            <time datetime="2017-05-27T17:56:57.000Z" itemprop="datePublished">2017-05-28</time>
+        <a href="/2017/05/28/javascriptNote2/">
+            <time datetime="2017-05-28T04:07:32.000Z" itemprop="datePublished">2017-05-28</time>
         </a>
     </div>
 
@@ -224,8 +224,39 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="欢迎"><a href="#欢迎" class="headerlink" title="欢迎"></a>欢迎</h2><p>欢迎来到我的Blog。</p>
-<p>本站由Github Pages托管，由Hexo驱动。</p>
+            <h1 id="函数和作用域"><a href="#函数和作用域" class="headerlink" title="函数和作用域"></a>函数和作用域</h1><h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>在一个函数里return了一个新的函数，当将return的函数赋值给一个变量时，这个外部的函数里的值未被释放，仍可以被访问。</p>
+<h3 id="TODO-循环闭包的错误"><a href="#TODO-循环闭包的错误" class="headerlink" title="//TODO 循环闭包的错误"></a>//TODO 循环闭包的错误</h3><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> ...</div><div class="line">  var ...</div><div class="line">  export.get... = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> ..;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">export</span>.get.....</div><div class="line">  window.export = <span class="keyword">export</span>;</div><div class="line">&#125;());</div><div class="line"></div><div class="line"><span class="keyword">export</span>.get....();</div><div class="line"><span class="comment">//将数据封装起来，外部仅可使用设定好的get方法来获取数据</span></div></pre></td></tr></table></figure>
+<ul>
+<li>闭包是指一个函数或函数的引用与一个引用环境绑定在一起，这个引用环境是一个存储还函数每个非局部变量的表</li>
+<li>闭包，不同于一般的函数。它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量</li>
+</ul>
+<p>使用起来灵活方便，但是会造成空间浪费甚至内存泄漏</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><h3 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h3><p>在js中，没有块级作用域。在</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> item <span class="keyword">in</span> &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;) &#123;</div><div class="line">  	.....</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(item);</div></pre></td></tr></table></figure>
+<p>中，log仍然有输出。在for循环里定义的变量等同于全局变量</p>
+<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>在函数外部是无法访问函数内的局部变量的</p>
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>从内向外都可以访问的到。</p>
+<p>如果用构造器调用的函数，是访问不到构造器所在的函数区域的局部变量的。</p>
+<h3 id="利用函数作用域封装"><a href="#利用函数作用域封装" class="headerlink" title="利用函数作用域封装"></a>利用函数作用域封装</h3><p>防止引发冲突。</p>
+<h2 id="ES3执行上下文"><a href="#ES3执行上下文" class="headerlink" title="ES3执行上下文"></a>ES3执行上下文</h2><h3 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h3><p>类似栈的结构。每次访问使用一个函数都会创建一个新的执行上下文的一个环境</p>
+<h3 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h3><p>用于存储执行上下文中的 变量、函数声明、函数参数</p>
+<h3 id="全局执行上下文"><a href="#全局执行上下文" class="headerlink" title="全局执行上下文"></a>全局执行上下文</h3><p>在全局作用域下，背后有一个变量对象，会把对应全局的对象存储到Veriable Object里。</p>
+<p>浏览器里全局对象window就指向了变量对象</p>
+<p>通过这个全局变量对象拿到某个变量的属性等等</p>
+<p>解释了为什么在第一行就可以调用math等对象</p>
+<h3 id="函数中的激活对象"><a href="#函数中的激活对象" class="headerlink" title="函数中的激活对象"></a>函数中的激活对象</h3><p>调用时会有一个特殊的arguments的对象</p>
+<p>对于函数来讲VO和AO是同一个对象</p>
+<h3 id="各个阶段"><a href="#各个阶段" class="headerlink" title="各个阶段"></a>各个阶段</h3><h4 id="变量初始化阶段"><a href="#变量初始化阶段" class="headerlink" title="变量初始化阶段"></a>变量初始化阶段</h4><p>按照函数参数（如无，则为undefined）函数声明（冲突则覆盖）变量声明（初始化变量值为undefined，冲突则忽略）</p>
+<p>如果有一个变量和函数都叫d，那么最后会留下函数d而不是变量d</p>
+<p>如果有两个变量都叫e，那只留下第一个</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x,y,z</span>)</span>&#123;</div><div class="line">  functionx()&#123;</div><div class="line">    </div><div class="line">  &#125;;</div><div class="line">  alert(x);</div><div class="line">&#125;</div><div class="line">foo(<span class="number">100</span>); <span class="comment">//会输出一个function x()&#123;&#125;对象</span></div></pre></td></tr></table></figure>
+<p>函数表达式不会影响VO。解释了在外部为什么无法拿到命名函数表达式为何在外部无法调用</p>
+<h4 id="代码执行阶段"><a href="#代码执行阶段" class="headerlink" title="代码执行阶段"></a>代码执行阶段</h4><p>将每个变量赋值</p>
+<p>所以当初始化阶段结束后，如变量x和函数x重名，第一次执行调用x会返回函数x，当对函数进行赋值后调用则会返回函数值。如果仅声明但是因为if等语句没有执行赋值的变量，最终调用时会返回undefined</p>
+<h1 id="OOP-面向对象编程"><a href="#OOP-面向对象编程" class="headerlink" title="OOP 面向对象编程"></a>OOP 面向对象编程</h1><p>一种程序设计泛型。对象指的是类的实例，将对象作为基本的程序单元，将程序和数据封装其中，以提高软件的重用性，灵活性和扩展性。</p>
+<p>一些特性：继承封装多态抽象</p>
+<h2 id="基于原型链的继承"><a href="#基于原型链的继承" class="headerlink" title="基于原型链的继承"></a>基于原型链的继承</h2><p>当使用函数声明时会有一个prototype对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">constructor</span>: Foo,</div><div class="line">	<span class="attr">__proto__</span>: <span class="built_in">Object</span>.prototype,</div><div class="line">	<span class="attr">x</span>:<span class="number">1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -236,7 +267,7 @@
 
 </div>
 
-    <a data-url="http://jasonjx.com/2017/05/28/hello-world/" data-id="cj38ambai0001ij6wyeopcwkg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jasonjx.com/2017/05/28/javascriptNote2/" data-id="cj38ambam0003ij6wcd8trqrz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -304,7 +335,7 @@
 
             
     
-        <a href="http://jasonjx.com/2017/05/28/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/28/hello-world/">Comments</a>
+        <a href="http://jasonjx.com/2017/05/28/javascriptNote2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/28/javascriptNote2/">Comments</a>
     
 
         </footer>
@@ -313,19 +344,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/05/28/javascriptNote2/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    Javascript笔记2
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/05/27/crawler/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/05/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Python爬虫笔记</div>
+            <div class="article-nav-title">这是一篇文章</div>
         </a>
     
 </nav>
@@ -485,9 +507,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://jasonjx.com/2017/05/28/hello-world/';
+            this.page.url = 'http://jasonjx.com/2017/05/28/javascriptNote2/';
         
-        this.page.identifier = 'hello-world';
+        this.page.identifier = 'javascriptNote2';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
