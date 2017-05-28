@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Jason&#39;s Blog">
 <meta property="og:description" content="函数和作用域闭包在一个函数里return了一个新的函数，当将return的函数赋值给一个变量时，这个外部的函数里的值未被释放，仍可以被访问。 //TODO 循环闭包的错误封装123456789101112(function()&amp;#123;  var ...  var ...  export.get... = function()&amp;#123;    return ..;  &amp;#125;  expor">
 <meta property="og:image" content="https://image.ibb.co/jSrEoF/1024.png">
-<meta property="og:updated_time" content="2017-05-28T08:16:50.000Z">
+<meta property="og:updated_time" content="2017-05-28T08:50:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript笔记2">
 <meta name="twitter:description" content="函数和作用域闭包在一个函数里return了一个新的函数，当将return的函数赋值给一个变量时，这个外部的函数里的值未被释放，仍可以被访问。 //TODO 循环闭包的错误封装123456789101112(function()&amp;#123;  var ...  var ...  export.get... = function()&amp;#123;    return ..;  &amp;#125;  expor">
@@ -266,12 +266,97 @@
 <h2 id="实现继承"><a href="#实现继承" class="headerlink" title="实现继承"></a>实现继承</h2><p>不能</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Student.prototype = Person.prototype;</div><div class="line"><span class="comment">//当创建子类的独特属性时，这样赋值会把person的prototype也改掉</span></div></pre></td></tr></table></figure>
 <p>应该</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Student.prototype = <span class="built_in">Object</span>.create(Person.protype);</div><div class="line"><span class="comment">//创建一个空函数，把空函数的prototype属性指向Person.protype</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Student.prototype = <span class="built_in">Object</span>.create(Person.protype);</div><div class="line"><span class="comment">//创建一个空函数，把空函数的prototype属性指向Person.protype</span></div><div class="line"><span class="comment">//然后应该重设构造器</span></div><div class="line">Student.prototype.constructor = Student;</div></pre></td></tr></table></figure>
 <h2 id="模拟重载"><a href="#模拟重载" class="headerlink" title="模拟重载"></a>模拟重载</h2><p>java中可以靠判断参数的类型和个数来判断使用同名的哪一个函数。</p>
 <p>但由于JavaScript是一个弱类型语言，没有直接的机制进行判断</p>
 <p>但可以通过判断arguments属性的长度和每个数值的类型来实现不同的功能</p>
 <h2 id="链式调用"><a href="#链式调用" class="headerlink" title="链式调用"></a>链式调用</h2><p>通过某个方法return this来返回当前对象，可以重复调用同一个方法</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Manager</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">Manager.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">  alert(added!)</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> manag = <span class="keyword">new</span> Manager();</div><div class="line">manager.add(<span class="string">'a'</span>).add(<span class="string">'b'</span>).add(<span class="string">'c'</span>);</div></pre></td></tr></table></figure>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>在常见的字符串检索或者替换的时候，我们需要提供一直模式检索或替换的规则。正则表达式使用单个字符串来描述匹配一系列符合某个句法规则的字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/\d\d\d/.test(<span class="string">"123"</span>); <span class="comment">//true</span></div><div class="line">/\d\d\d/.test(<span class="string">"abc"</span>); <span class="comment">//false \d stands for number</span></div><div class="line"><span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"Jason"</span>).test(<span class="string">"Hi, Jason"</span>); <span class="comment">//默认case-sensitive</span></div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>.</th>
+<th>任意字符 除换行符\n \r \u</th>
+<th>/…/.test(“1a@”)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\d</td>
+<td>0-9</td>
+<td></td>
+</tr>
+<tr>
+<td>\D</td>
+<td>非\d</td>
+<td></td>
+</tr>
+<tr>
+<td>\w</td>
+<td>0-9或大小写字母或下划线</td>
+<td></td>
+</tr>
+<tr>
+<td>\W</td>
+<td>非\w</td>
+<td>/\W/.test(“@”)</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>空格符TAB换页符换行符</td>
+<td>/\sa/.test(“ a”)</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>非\s</td>
+<td></td>
+</tr>
+<tr>
+<td>\t\r\n\v\f</td>
+<td>tab回车换行垂直制表符换页符</td>
+</tr>
+</tbody>
+</table>
+<p>范围符号</p>
+<table>
+<thead>
+<tr>
+<th>[…]</th>
+<th>字符范围</th>
+<th>[a-z], [0-9], [A-Z0-9a-z]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[^…]</td>
+<td>字符范围以外</td>
+<td></td>
+</tr>
+<tr>
+<td>^</td>
+<td>行首</td>
+<td>^Hi（Hi在行首</td>
+</tr>
+<tr>
+<td>$</td>
+<td>行尾</td>
+<td>test$</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>零宽单词边界</td>
+<td>\bno</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>非\b</td>
+</tr>
+</tbody>
+</table>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/7DG3kCDx53c?ecver=1" frameborder="0" allowfullscreen></iframe>
+
 
         
         </div>
