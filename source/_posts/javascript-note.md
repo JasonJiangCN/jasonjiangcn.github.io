@@ -1,5 +1,5 @@
 ---
-title: JavaScript笔记
+title: JavaScript笔记(1)
 date: 2017-05-24 00:11:04
 tags:
 thumbnail: https://image.ibb.co/mhBBkv/js.png
@@ -143,4 +143,6 @@ func(1,2); //103
 var func = abc.bind(null,200); //200替换了第二个变量b
 func(3); //303
 ```
+
+如果使用new操作符，那么bind的this对象会被忽略掉
 
