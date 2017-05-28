@@ -143,3 +143,61 @@ foo(100); //会输出一个function x(){}对象
 }
 ```
 
+ ## 改变prototype
+
+动态的添加或删除一个属性
+
+已经创建的实例，指向的prototype是固定的
+
+当更改prototype为另一个对象后，已经实例化的对象的prototype不会改变
+
+```javascript
+haha = new a();
+a.prototype.x=1;
+a.prototype = {y:2};
+haha.x; //1
+haha.y; //undefined
+```
+
+此时再new一个实例，那prototype指向的对象就改变为新的
+
+！注意 只修改prototype的属性是会是实时影响的
+
+## 实现继承
+
+不能
+
+```javascript
+Student.prototype = Person.prototype;
+//当创建子类的独特属性时，这样赋值会把person的prototype也改掉
+```
+
+应该
+
+```javascript
+Student.prototype = Object.create(Person.protype);
+//创建一个空函数，把空函数的prototype属性指向Person.protype
+```
+
+## 模拟重载
+
+java中可以靠判断参数的类型和个数来判断使用同名的哪一个函数。
+
+但由于JavaScript是一个弱类型语言，没有直接的机制进行判断
+
+但可以通过判断arguments属性的长度和每个数值的类型来实现不同的功能
+
+## 链式调用
+
+通过某个方法return this来返回当前对象，可以重复调用同一个方法
+
+```javascript
+function Manager(){}
+Manager.prototype.add = function(str){
+  alert(added!)
+  return this;
+}
+var manag = new Manager();
+manager.add('a').add('b').add('c');
+```
+
