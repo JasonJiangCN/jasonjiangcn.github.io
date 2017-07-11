@@ -5,16 +5,16 @@
     
     <title>回调函数总结 | Jason&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="概念在计算机程序设计中，回调函数，或简称回调（Callback 即call then back 被主函数调用运算后会返回主函数），是指通过函数参数传递到其它代码的，某一块可执行代码的引用。这一设计允许了底层代码调用在高层定义的子程序。 通俗来说..主程序A调用另一个程序B，但是">
+    <meta name="description" content="概念在计算机程序设计中，回调函数，或简称回调（Callback 即call then back 被主函数调用运算后会返回主函数），是指通过函数参数传递到其它代码的，某一块可执行代码的引用。这一设计允许了底层代码调用在高层定义的子程序。 通俗来说..主程序A调用另一个程序B，但是B得到的信息不全，就要再去call另一个函数。这个函数就是回调函数。 本来是A来调用B，但是B最终又调用了A的信息，这个过">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回调函数总结">
 <meta property="og:url" content="http://jasonjx.com/2017/07/11/Callback/index.html">
 <meta property="og:site_name" content="Jason&#39;s Blog">
-<meta property="og:description" content="概念在计算机程序设计中，回调函数，或简称回调（Callback 即call then back 被主函数调用运算后会返回主函数），是指通过函数参数传递到其它代码的，某一块可执行代码的引用。这一设计允许了底层代码调用在高层定义的子程序。 通俗来说..主程序A调用另一个程序B，但是">
-<meta property="og:updated_time" content="2017-07-11T07:14:39.000Z">
+<meta property="og:description" content="概念在计算机程序设计中，回调函数，或简称回调（Callback 即call then back 被主函数调用运算后会返回主函数），是指通过函数参数传递到其它代码的，某一块可执行代码的引用。这一设计允许了底层代码调用在高层定义的子程序。 通俗来说..主程序A调用另一个程序B，但是B得到的信息不全，就要再去call另一个函数。这个函数就是回调函数。 本来是A来调用B，但是B最终又调用了A的信息，这个过">
+<meta property="og:updated_time" content="2017-07-11T07:41:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回调函数总结">
-<meta name="twitter:description" content="概念在计算机程序设计中，回调函数，或简称回调（Callback 即call then back 被主函数调用运算后会返回主函数），是指通过函数参数传递到其它代码的，某一块可执行代码的引用。这一设计允许了底层代码调用在高层定义的子程序。 通俗来说..主程序A调用另一个程序B，但是">
+<meta name="twitter:description" content="概念在计算机程序设计中，回调函数，或简称回调（Callback 即call then back 被主函数调用运算后会返回主函数），是指通过函数参数传递到其它代码的，某一块可执行代码的引用。这一设计允许了底层代码调用在高层定义的子程序。 通俗来说..主程序A调用另一个程序B，但是B得到的信息不全，就要再去call另一个函数。这个函数就是回调函数。 本来是A来调用B，但是B最终又调用了A的信息，这个过">
     
 
     
@@ -78,7 +78,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -97,10 +97,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -131,7 +131,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
     </div>
 
                 </td>
@@ -151,16 +151,16 @@
             <h2 id="name">Jason Jiang</h2>
             <h3 id="title">CS Major Student</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Madison, WI, U.S.</span>
-            <a id="follow" target="_blank" href="https://github.com/JasonJiangCN/">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://github.com/JasonJiangCN/">SEGUIR</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 8
-                <span>posts</span>
+                <span>Entradas</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>tag</span>
+                <span>Etiqueta</span>
             </div>
         </div>
         
@@ -223,8 +223,17 @@
         
             
             <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>在计算机程序设计中，回调函数，或简称回调（Callback 即call then back 被主函数调用运算后会返回主函数），是指通过函数参数传递到其它代码的，某一块可执行代码的引用。这一设计允许了底层代码调用在高层定义的子程序。</p>
-<h2 id="通俗来说"><a href="#通俗来说" class="headerlink" title="通俗来说.."></a>通俗来说..</h2><p>主程序A调用另一个程序B，但是</p>
-
+<h2 id="通俗来说"><a href="#通俗来说" class="headerlink" title="通俗来说.."></a>通俗来说..</h2><p>主程序A调用另一个程序B，但是B得到的信息不全，就要再去call另一个函数。这个函数就是回调函数。</p>
+<p>本来是A来调用B，但是B最终又调用了A的信息，这个过程被称为回调。</p>
+<h1 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//待解决的作业</span></div><div class="line">String aHomeWork = <span class="string">"1+1=?"</span></div><div class="line"><span class="comment">//室友写出答案</span></div><div class="line">String theAnswer = roomMate.getAnswer(aHomeWork);</div><div class="line"><span class="comment">//该同学调用，自己把答案写到作业本。（也即是这个步骤不给调用了）</span></div><div class="line">student.doHomeWork(aHomeWork, theAnswer);</div><div class="line"><span class="comment">//做作业必须得调用这个方法，而根据需求这个方法必须由室友去调用。那很显然，该室友得保持一个该同学的引用，才能正常调用啊。</span></div><div class="line"><span class="comment">//灯灯灯~</span></div><div class="line"><span class="comment">//室友说，那你在调用getAnswer方法的时候，除了传入作业，还需要把自己的引用放里面。这样我做完了，直接调用你的做作业方法就行了。</span></div><div class="line">roomMate.getAnswer(aHomeWork,student);</div></pre></td></tr></table></figure>
+<p>完整代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doHomeWork</span><span class="params">(String homeWork, String answer)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"作业本"</span>);</div><div class="line">        <span class="keyword">if</span>(answer != <span class="keyword">null</span>) &#123;</div><div class="line">            System.out.println(<span class="string">"作业："</span>+homeWork+<span class="string">" 答案："</span>+ answer);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(<span class="string">"作业："</span>+homeWork+<span class="string">" 答案："</span>+ <span class="string">"(空白)"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Student student = <span class="keyword">new</span> Student();</div><div class="line"></div><div class="line">        String aHomeWork = <span class="string">"1+1=?"</span>;</div><div class="line"></div><div class="line">        RoomMate roomMate = <span class="keyword">new</span> RoomMate();</div><div class="line">        roomMate.getAnswer(aHomeWork,student);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>RoomMate</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RoomMate</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getAnswer</span><span class="params">(String homework, Student student)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="string">"1+1=?"</span>.equals(homework)) &#123;</div><div class="line">            student.doHomeWork(homework, <span class="string">"2"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            student.doHomeWork(homework, <span class="string">"(空白)"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这位学生告诉室友要做什么作业，并把自己的引用也给了室友。该室友得到作业，做完后直接引用该学生并调用其做作业的方法，完成代写作业的任务。</p>
+</blockquote>
+<h1 id="To-be-continued"><a href="#To-be-continued" class="headerlink" title="To be continued.."></a>To be continued..</h1>
         
         </div>
         <footer class="article-footer">
@@ -234,7 +243,7 @@
 
 </div>
 
-    <a data-url="http://jasonjx.com/2017/07/11/Callback/" data-id="cj4z8rm9a00003icq6f3922z4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jasonjx.com/2017/07/11/Callback/" data-id="cj4z8rm9a00003icq6f3922z4" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -302,7 +311,7 @@
 
             
     
-        <a href="http://jasonjx.com/2017/07/11/Callback/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/07/11/Callback/">Comments</a>
+        <a href="http://jasonjx.com/2017/07/11/Callback/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/07/11/Callback/">Comentarios</a>
     
 
         </footer>
@@ -311,9 +320,18 @@
         
 <nav id="article-nav">
     
+        <a href="/2017/07/11/jsCompare/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Más nuevo</strong>
+            <div class="article-nav-title">
+                
+                    主流js框架对比
+                
+            </div>
+        </a>
+    
     
         <a href="/2017/07/11/Vue/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Más viejo</strong>
             <div class="article-nav-title">Vue</div>
         </a>
     
@@ -341,9 +359,28 @@
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
+        <h3 class="widget-title">Recientes</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/11/jsCompare/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/07/11/jsCompare/" class="title">主流js框架对比</a></p>
+                            <p class="item-date"><time datetime="2017-07-11T07:47:45.000Z" itemprop="datePublished">2017-07-11</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -380,25 +417,6 @@
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/2017/07/11/Vue/" class="title">Vue</a></p>
                             <p class="item-date"><time datetime="2017-07-11T02:29:01.000Z" itemprop="datePublished">2017-07-11</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/07/10/jsCompare/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/07/10/jsCompare/" class="title">主流js框架对比</a></p>
-                            <p class="item-date"><time datetime="2017-07-10T07:47:45.000Z" itemprop="datePublished">2017-07-10</time></p>
                         </div>
                     </li>
                 
@@ -449,7 +467,7 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
+        <h3 class="widget-title">Archivos</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li></ul>
         </div>
@@ -462,7 +480,7 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
+        <h3 class="widget-title">Links</h3>
         <div class="widget">
             <ul>
                 
