@@ -3,7 +3,7 @@
 cd ~/Documents/blog
 hexo g
 git add --all
-nameUp="`date + %F`_updated" 
+nameUp="`date +%F`_updated" 
 git commit -m  $nameUp
 git push origin jason
 
