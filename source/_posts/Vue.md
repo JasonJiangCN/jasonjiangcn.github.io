@@ -214,3 +214,21 @@ var MyComponent = Vue.extend({
 var myComponentInstance = new MyComponent()
 ```
 
+每个Vue实例都会代理data对象里的所有属性
+
+```javascript
+var data = { a: 1 }
+var vm = new Vue({
+  data: data
+})
+vm.a === data.a // -> true
+// 设置属性也会影响到原始数据
+vm.a = 2
+data.a // -> 2
+// ... 反之亦然
+data.a = 3
+vm.a // -> 3
+```
+
+>  这种属性是**响应的**
+

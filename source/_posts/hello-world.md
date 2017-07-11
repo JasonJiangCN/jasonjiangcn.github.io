@@ -1,5 +1,6 @@
 ---
 title: 这是一篇文章
+date: 2017-04-11 15:06:16
 thumbnail: https://image.ibb.co/gv0hsa/helloworld.jpg
 ---
 
