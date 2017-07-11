@@ -74,7 +74,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -93,10 +93,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Entradas',
+            POSTS: 'Posts',
             PAGES: 'Pages',
-            CATEGORIES: 'Categorias',
-            TAGS: 'Etiquetas',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -127,7 +127,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
     </div>
 
                 </td>
@@ -147,16 +147,16 @@
             <h2 id="name">Jason Jiang</h2>
             <h3 id="title">CS Major Student</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Madison, WI, U.S.</span>
-            <a id="follow" target="_blank" href="https://github.com/JasonJiangCN/">SEGUIR</a>
+            <a id="follow" target="_blank" href="https://github.com/JasonJiangCN/">FOLLOW</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                7
-                <span>Entradas</span>
+                8
+                <span>posts</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>Etiqueta</span>
+                <span>tag</span>
             </div>
         </div>
         
@@ -186,6 +186,129 @@
 
             
             <section id="main">
+    <article id="post-Callback" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/07/11/Callback/">回调函数总结</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/07/11/Callback/">
+            <time datetime="2017-07-11T07:06:16.000Z" itemprop="datePublished">2017-07-11</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>在计算机程序设计中，回调函数，或简称回调（Callback 即call then back 被主函数调用运算后会返回主函数），是指通过函数参数传递到其它代码的，某一块可执行代码的引用。这一设计允许了底层代码调用在高层定义的子程序。</p>
+<h2 id="通俗来说"><a href="#通俗来说" class="headerlink" title="通俗来说.."></a>通俗来说..</h2><p>主程序A调用另一个程序B，但是</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://jasonjx.com/2017/07/11/Callback/" data-id="cj4z8rm9a00003icq6f3922z4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://jasonjx.com/2017/07/11/Callback/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/07/11/Callback/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Vue" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -263,6 +386,11 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="comment">//各种选项</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>也可以自己扩展某项功能，做一个新的构造器</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MyComponent = Vue.extend(&#123;</div><div class="line">  <span class="comment">// 扩展选项</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// 所有的 MyComponent 实例都将以预定义的扩展选项被创建</span></div><div class="line"><span class="keyword">var</span> myComponentInstance = <span class="keyword">new</span> MyComponent()</div></pre></td></tr></table></figure>
+<p>每个Vue实例都会代理data对象里的所有属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</div><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">data</span>: data</div><div class="line">&#125;)</div><div class="line">vm.a === data.a <span class="comment">// -&gt; true</span></div><div class="line"><span class="comment">// 设置属性也会影响到原始数据</span></div><div class="line">vm.a = <span class="number">2</span></div><div class="line">data.a <span class="comment">// -&gt; 2</span></div><div class="line"><span class="comment">// ... 反之亦然</span></div><div class="line">data.a = <span class="number">3</span></div><div class="line">vm.a <span class="comment">// -&gt; 3</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p> 这种属性是<strong>响应的</strong></p>
+</blockquote>
 
         
         </div>
@@ -273,7 +401,7 @@
 
 </div>
 
-    <a data-url="http://jasonjx.com/2017/07/11/Vue/" data-id="cj4z33ppi0000g1cqppcb6t5u" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://jasonjx.com/2017/07/11/Vue/" data-id="cj4z8rm9j00013icq1zemckcf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -341,7 +469,7 @@
 
             
     
-        <a href="http://jasonjx.com/2017/07/11/Vue/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/07/11/Vue/">Comentarios</a>
+        <a href="http://jasonjx.com/2017/07/11/Vue/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/07/11/Vue/">Comments</a>
     
 
         </footer>
@@ -415,7 +543,7 @@
 
 </div>
 
-    <a data-url="http://jasonjx.com/2017/07/10/jsCompare/" data-id="cj4z33pq80005g1cqjmiorm9p" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://jasonjx.com/2017/07/10/jsCompare/" data-id="cj4z8rm9v00053icqobwi8mp2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -483,7 +611,7 @@
 
             
     
-        <a href="http://jasonjx.com/2017/07/10/jsCompare/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/07/10/jsCompare/">Comentarios</a>
+        <a href="http://jasonjx.com/2017/07/10/jsCompare/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/07/10/jsCompare/">Comments</a>
     
 
         </footer>
@@ -575,7 +703,7 @@
 
 </div>
 
-    <a data-url="http://jasonjx.com/2017/05/28/jquery/" data-id="cj4z33pqe0006g1cqbykh62sg" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://jasonjx.com/2017/05/28/jquery/" data-id="cj4z8rma300073icq5rucm9rw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -643,7 +771,7 @@
 
             
     
-        <a href="http://jasonjx.com/2017/05/28/jquery/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/28/jquery/">Comentarios</a>
+        <a href="http://jasonjx.com/2017/05/28/jquery/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/28/jquery/">Comments</a>
     
 
         </footer>
@@ -828,7 +956,7 @@
 
 </div>
 
-    <a data-url="http://jasonjx.com/2017/05/28/javascriptNote2/" data-id="cj4z33pq50004g1cqxxvxmnee" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://jasonjx.com/2017/05/28/javascriptNote2/" data-id="cj4z8rm9z00063icqyi3absnd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -896,130 +1024,7 @@
 
             
     
-        <a href="http://jasonjx.com/2017/05/28/javascriptNote2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/28/javascriptNote2/">Comentarios</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/05/28/hello-world/">这是一篇文章</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/05/28/hello-world/">
-            <time datetime="2017-05-27T17:56:57.000Z" itemprop="datePublished">2017-05-28</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="欢迎"><a href="#欢迎" class="headerlink" title="欢迎"></a>欢迎</h2><p>欢迎来到我的Blog。</p>
-<p>本站由Github Pages托管，由Hexo驱动。</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://jasonjx.com/2017/05/28/hello-world/" data-id="cj4z33ppq0001g1cq493t9mh4" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://jasonjx.com/2017/05/28/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/28/hello-world/">Comentarios</a>
+        <a href="http://jasonjx.com/2017/05/28/javascriptNote2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/28/javascriptNote2/">Comments</a>
     
 
         </footer>
@@ -1116,7 +1121,7 @@
 
 </div>
 
-    <a data-url="http://jasonjx.com/2017/05/27/crawler/" data-id="cj4z33ppz0002g1cqnaj87kbu" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://jasonjx.com/2017/05/27/crawler/" data-id="cj4z8rm9q00033icqqmjpi53t" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1184,7 +1189,7 @@
 
             
     
-        <a href="http://jasonjx.com/2017/05/27/crawler/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/27/crawler/">Comentarios</a>
+        <a href="http://jasonjx.com/2017/05/27/crawler/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/27/crawler/">Comments</a>
     
 
         </footer>
@@ -1263,7 +1268,7 @@
 
 </div>
 
-    <a data-url="http://jasonjx.com/2017/05/24/javascript-note/" data-id="cj4z33pq20003g1cqxww0ps0f" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+    <a data-url="http://jasonjx.com/2017/05/24/javascript-note/" data-id="cj4z8rm9s00043icq4nmlxaa7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1331,7 +1336,130 @@
 
             
     
-        <a href="http://jasonjx.com/2017/05/24/javascript-note/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/24/javascript-note/">Comentarios</a>
+        <a href="http://jasonjx.com/2017/05/24/javascript-note/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/24/javascript-note/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/04/11/hello-world/">这是一篇文章</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/04/11/hello-world/">
+            <time datetime="2017-04-11T07:06:16.000Z" itemprop="datePublished">2017-04-11</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="欢迎"><a href="#欢迎" class="headerlink" title="欢迎"></a>欢迎</h2><p>欢迎来到我的Blog。</p>
+<p>本站由Github Pages托管，由Hexo驱动。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://jasonjx.com/2017/04/11/hello-world/" data-id="cj4z8rm9n00023icqgqhhd3np" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://jasonjx.com/2017/04/11/hello-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/04/11/hello-world/">Comments</a>
     
 
         </footer>
@@ -1346,9 +1474,28 @@
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Recientes</h3>
+        <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/11/Callback/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/07/11/Callback/" class="title">回调函数总结</a></p>
+                            <p class="item-date"><time datetime="2017-07-11T07:06:16.000Z" itemprop="datePublished">2017-07-11</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1426,25 +1573,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/05/28/hello-world/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://image.ibb.co/gv0hsa/helloworld.jpg)" alt="这是一篇文章" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/05/28/hello-world/" class="title">这是一篇文章</a></p>
-                            <p class="item-date"><time datetime="2017-05-27T17:56:57.000Z" itemprop="datePublished">2017-05-28</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1454,9 +1582,9 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">Archivos</h3>
+        <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">5</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1467,7 +1595,7 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">Links</h3>
+        <h3 class="widget-title">links</h3>
         <div class="widget">
             <ul>
                 
