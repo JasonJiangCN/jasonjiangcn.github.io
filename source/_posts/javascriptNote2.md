@@ -237,3 +237,4 @@ new RegExp("Jason").test("Hi, Jason"); //默认case-sensitive
 
 特殊符号转译 \^ —> 查找^这个符号
 
+$1+1$
