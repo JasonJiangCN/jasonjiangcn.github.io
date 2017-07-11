@@ -3,20 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>jQuery笔记 | Jason&#39;s Blog</title>
+    <title>Vue | Jason&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="jQuery的安装和使用1npm install jquery 或者使用CDN，在HTML中直接引用 1234&amp;lt;!--Google CDN jQuery3--&amp;gt;&amp;lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;!--Google">
+    <meta name="description" content="引入Vue1&amp;lt;script src=&quot;https://unpkg.com/vue&quot;&amp;gt;&amp;lt;/script&amp;gt; 起步声明式渲染1234567891011&amp;lt;div id=&quot;app&quot;&amp;gt;  &amp;#123;&amp;#123; message &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;var app = new Vue(&amp;#123;  el: &apos;#app&apos;,  data: &amp;#12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery笔记">
-<meta property="og:url" content="http://jasonjx.com/2017/05/28/jquery/index.html">
+<meta property="og:title" content="Vue">
+<meta property="og:url" content="http://jasonjx.com/2017/07/11/Vue/index.html">
 <meta property="og:site_name" content="Jason&#39;s Blog">
-<meta property="og:description" content="jQuery的安装和使用1npm install jquery 或者使用CDN，在HTML中直接引用 1234&amp;lt;!--Google CDN jQuery3--&amp;gt;&amp;lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;!--Google">
-<meta property="og:image" content="https://image.ibb.co/dqQ5dF/images.png">
-<meta property="og:updated_time" content="2017-06-11T07:01:11.000Z">
+<meta property="og:description" content="引入Vue1&amp;lt;script src=&quot;https://unpkg.com/vue&quot;&amp;gt;&amp;lt;/script&amp;gt; 起步声明式渲染1234567891011&amp;lt;div id=&quot;app&quot;&amp;gt;  &amp;#123;&amp;#123; message &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;var app = new Vue(&amp;#123;  el: &apos;#app&apos;,  data: &amp;#12">
+<meta property="og:updated_time" content="2017-07-11T04:35:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery笔记">
-<meta name="twitter:description" content="jQuery的安装和使用1npm install jquery 或者使用CDN，在HTML中直接引用 1234&amp;lt;!--Google CDN jQuery3--&amp;gt;&amp;lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;!--Google">
-<meta name="twitter:image" content="https://image.ibb.co/dqQ5dF/images.png">
+<meta name="twitter:title" content="Vue">
+<meta name="twitter:description" content="引入Vue1&amp;lt;script src=&quot;https://unpkg.com/vue&quot;&amp;gt;&amp;lt;/script&amp;gt; 起步声明式渲染1234567891011&amp;lt;div id=&quot;app&quot;&amp;gt;  &amp;#123;&amp;#123; message &amp;#125;&amp;#125;&amp;lt;/div&amp;gt;var app = new Vue(&amp;#123;  el: &apos;#app&apos;,  data: &amp;#12">
     
 
     
@@ -191,7 +189,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-jquery" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Vue" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -199,7 +197,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            jQuery笔记
+            Vue
         </h1>
     
 
@@ -208,8 +206,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/05/28/jquery/">
-            <time datetime="2017-05-28T13:02:38.000Z" itemprop="datePublished">2017-05-28</time>
+        <a href="/2017/07/11/Vue/">
+            <time datetime="2017-07-11T02:29:01.000Z" itemprop="datePublished">2017-07-11</time>
         </a>
     </div>
 
@@ -224,45 +222,50 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h1 id="jQuery的安装和使用"><a href="#jQuery的安装和使用" class="headerlink" title="jQuery的安装和使用"></a>jQuery的安装和使用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install jquery</div></pre></td></tr></table></figure>
-<p>或者使用CDN，在HTML中直接引用</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Google CDN jQuery3--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="comment">&lt;!--Google CDN jQuery2--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<h1 id="jQuery选择器"><a href="#jQuery选择器" class="headerlink" title="jQuery选择器"></a>jQuery选择器</h1><p>$(DOM Object) 将DOM对象转换为jQuery对象</p>
-<p>$(“#id”)通过id获取jQuery对象</p>
-<p>$(“.class”)通过class获取</p>
-<p>$(“p”)通过标签获取</p>
-<p>$(“*”)全选择器，获取界面所有元素</p>
-<p>$(‘div &gt; p’) 选择指定parent里的指定子元素</p>
-<p>$(‘div p’)选择指定祖先元素里的后代元素，包含子元素</p>
-<p>$(“.prev + div”)选择所有紧挨prev元素的兄弟元素</p>
-<p>$(“.prev ~ div”)选择所有具有相同父元素的兄弟元素</p>
-<h1 id="jQuery基本筛选选择器"><a href="#jQuery基本筛选选择器" class="headerlink" title="jQuery基本筛选选择器"></a>jQuery基本筛选选择器</h1><p>使用:来进行筛选</p>
-<p>$(“.div:first”)匹配第一个元素</p>
-<p>:last</p>
-<p>:even</p>
-<p>:odd</p>
-<p>:eq(index)在匹配到的集合中选择index对应的数据</p>
-<p>:gt(index)选择所有index大于给定值的元素</p>
-<p>:lt(index)选定所有小于index的</p>
-<p>:not(selector)选择所有不满足给定选择器的元素</p>
-<h2 id="内容筛选器"><a href="#内容筛选器" class="headerlink" title="内容筛选器"></a>内容筛选器</h2><p>:contains(“text”)</p>
-<p>:parent 选择所有含有子元素的父节点</p>
-<p>:empty选择所有不含子节点的节点，包含文本节点</p>
-<p>:has(selector)选择元素包含的元素中至少满足给定选择器的元素</p>
-<p>:visiable 可见元素</p>
-<p>:hidden隐藏元素</p>
+            <h1 id="引入Vue"><a href="#引入Vue" class="headerlink" title="引入Vue"></a>引入Vue</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"https://unpkg.com/vue"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h1 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h1><h2 id="声明式渲染"><a href="#声明式渲染" class="headerlink" title="声明式渲染"></a>声明式渲染</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div id="app"&gt;</div><div class="line">  &#123;&#123; message &#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line"></div><div class="line">var app = new Vue(&#123;</div><div class="line">  el: '#app',</div><div class="line">  data: &#123;</div><div class="line">    message: 'Hello Vue!'</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>运行结果</p>
 <blockquote>
-<p>隐藏元素的方法</p>
+<p>Hello Vue!</p>
+</blockquote>
+<p>并且所有数据和DOM已经绑定，所有元素都是<strong>响应式</strong>的。对元素数据的修改可以实时的对网页显示的数据进行更新。</p>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><p>指令前带有前坠 <code>v-</code> 表示是Vue提供的。</p>
+<blockquote>
+<p>v-bind 绑定， 将元素节点的某个属性和Vue实例的某个属性保持一致</p>
+</blockquote>
+<h2 id="条件与循环"><a href="#条件与循环" class="headerlink" title="条件与循环"></a>条件与循环</h2><blockquote>
+<p>v-if 指令。如果后面跟的Data为True则显示后面的内容。</p>
+<p>v-for可以绑定数组的数据来渲染</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//v-for</div><div class="line"></div><div class="line">//html</div><div class="line">&lt;div id="app-4"&gt;</div><div class="line">  &lt;ol&gt;</div><div class="line">    &lt;li v-for="todo in todos"&gt;</div><div class="line">      &#123;&#123; todo.text &#125;&#125;</div><div class="line">    &lt;/li&gt;</div><div class="line">  &lt;/ol&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">  </div><div class="line">//js</div><div class="line">var app4 = new Vue(&#123;</div><div class="line">  el: '#app-4',</div><div class="line">  data: &#123;</div><div class="line">    todos: [</div><div class="line">      &#123; text: '学习 JavaScript' &#125;,</div><div class="line">      &#123; text: '学习 Vue' &#125;,</div><div class="line">      &#123; text: '整个牛项目' &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="用户输入"><a href="#用户输入" class="headerlink" title="用户输入"></a>用户输入</h2><blockquote>
+<p>v-on可以绑定一个事件监听器。</p>
+</blockquote>
+<p>button上的<code>v-on:click</code> 属性可以调用Vue中methods里定义的方法。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div id="app-5"&gt;</div><div class="line">  &lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</div><div class="line">  &lt;button v-on:click="reverseMessage"&gt;逆转消息&lt;/button&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">  </div><div class="line">var app5 = new Vue(&#123;</div><div class="line">  el: '#app-5',</div><div class="line">  data: &#123;</div><div class="line">    message: 'Hello Vue.js!'</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    reverseMessage: function () &#123;</div><div class="line">      this.message = this.message.split('').reverse().join('')</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>v-model 可以实现输入数据和表单数据的双向绑定</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"app-6"</span>&gt;</div><div class="line">  &lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</div><div class="line">  &lt;input v-model=<span class="string">"message"</span>&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"><span class="keyword">var</span> app6 = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#app-6'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">message</span>: <span class="string">'Hello Vue!'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">//在输入框里输入的所有内容都会实时同步到message里，进而同步到p标签的内容里</span></div></pre></td></tr></table></figure>
+<h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><p>利用小型组件构建大型应用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//注册一个组件</span></div><div class="line">Vue.component(<span class="string">"new-item"</span>,&#123;</div><div class="line">  <span class="comment">//props现在作为这个组建的"prop"，类似一个自定义属性</span></div><div class="line">  <span class="comment">//这个属性的名字叫newItem、</span></div><div class="line">  props: [<span class="string">'newItem'</span>],</div><div class="line">  </div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;li&gt;&#123;&#123; newItem.text &#125;&#125;&lt;/li&gt;'</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">&lt;ol&gt;</div><div class="line">  &lt;new-item&gt;</div><div class="line">  	v-bind:newItem="(填入要绑定的数据类型名称）"</div><div class="line">  &lt;/new-item&gt;</div><div class="line">  </div><div class="line">&lt;/ol&gt;</div></pre></td></tr></table></figure>
+<p>利用循环和绑定输出一个列表</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"app-7"</span>&gt;</div><div class="line">  &lt;ol&gt;</div><div class="line">    &lt;!--</div><div class="line">      现在我们为每个 todo-item 提供待办项对象</div><div class="line">      待办项对象是变量，即其内容可以是动态的。</div><div class="line">      我们也需要为每个组件提供一个“key”，晚些时候我们会做个解释。</div><div class="line">    --&gt;</div><div class="line">    &lt;todo-item</div><div class="line">      v-for="item in groceryList"</div><div class="line">      v-bind:todo="item"</div><div class="line">      v-bind:key="item.id"&gt;</div><div class="line">    &lt;/todo-item&gt;</div><div class="line">  &lt;/ol&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">Vue.component(<span class="string">'todo-item'</span>, &#123;</div><div class="line">  <span class="attr">props</span>: [<span class="string">'todo'</span>],</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;li&gt;&#123;&#123; todo.text &#125;&#125;&lt;/li&gt;'</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">var</span> app7 = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#app-7'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">groceryList</span>: [</div><div class="line">      &#123; <span class="attr">id</span>: <span class="number">0</span>, <span class="attr">text</span>: <span class="string">'蔬菜'</span> &#125;,</div><div class="line">      &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">text</span>: <span class="string">'奶酪'</span> &#125;,</div><div class="line">      &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">text</span>: <span class="string">'随便其他什么人吃的东西'</span> &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>输出结果</p>
+<blockquote>
 <ol>
-<li>CSS display的值是none。</li>
-<li>type=”hidden”的表单元素。</li>
-<li>宽度和高度都显式设置为0。</li>
-<li>一个祖先元素是隐藏的，该元素是不会在页面上显示</li>
-<li>CSS visibility的值是hidden</li>
-<li>CSS opacity的指是0</li>
+<li>蔬菜</li>
+<li>奶酪</li>
+<li>随便其他什么人吃的东西</li>
 </ol>
 </blockquote>
-<p>#</p>
+<p>可见子单元利用props接口获取了负担元终端数据。</p>
+<p>这样做的好处是在子单元<code>todo-item</code> 中做的更复杂的修改，不会影响到父单元。</p>
+<p>Vue组件和Web自定义元素很相似。但是优点是可以在不需要任何补丁的情况下运行在主流浏览器里。必要时Vue组件也可以包装进原生自定义元素之内。也多了很多特别的内容，eg. 跨组件数据流</p>
+<h1 id="Vue实例"><a href="#Vue实例" class="headerlink" title="Vue实例"></a>Vue实例</h1><h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><p>所有Vue应用都是要通过Vue构造器来创建的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="comment">//各种选项</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>也可以自己扩展某项功能，做一个新的构造器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> MyComponent = Vue.extend(&#123;</div><div class="line">  <span class="comment">// 扩展选项</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// 所有的 MyComponent 实例都将以预定义的扩展选项被创建</span></div><div class="line"><span class="keyword">var</span> myComponentInstance = <span class="keyword">new</span> MyComponent()</div></pre></td></tr></table></figure>
 
         
         </div>
@@ -273,7 +276,7 @@
 
 </div>
 
-    <a data-url="http://jasonjx.com/2017/05/28/jquery/" data-id="cj4z33pqe0006g1cqbykh62sg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://jasonjx.com/2017/07/11/Vue/" data-id="cj4z33ppi0000g1cqppcb6t5u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -341,7 +344,7 @@
 
             
     
-        <a href="http://jasonjx.com/2017/05/28/jquery/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/05/28/jquery/">Comments</a>
+        <a href="http://jasonjx.com/2017/07/11/Vue/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://jasonjx.com/2017/07/11/Vue/">Comments</a>
     
 
         </footer>
@@ -350,19 +353,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2017/07/10/jsCompare/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    主流js框架对比
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/05/28/javascriptNote2/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/07/10/jsCompare/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Javascript笔记2</div>
+            <div class="article-nav-title">主流js框架对比</div>
         </a>
     
 </nav>
@@ -541,9 +535,9 @@
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://jasonjx.com/2017/05/28/jquery/';
+            this.page.url = 'http://jasonjx.com/2017/07/11/Vue/';
         
-        this.page.identifier = 'jquery';
+        this.page.identifier = 'Vue';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
