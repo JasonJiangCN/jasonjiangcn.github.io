@@ -465,3 +465,32 @@ new Vue({
 
 # 计算属性
 
+很多时候表达式过长会让逻辑显得不清晰，这时我们就应使用计算属性。
+
+```html
+<div id="example">
+  <p>Original message: "{{ message }}"</p>
+  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+</div>
+```
+
+```javascript
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello'
+  },
+  computed: {
+    // a computed getter
+    reversedMessage: function () {
+      // `this` points to the vm instance
+      return this.message.split('').reverse().join('')
+    }
+  }
+})
+```
+
+值得注意的是，计算属性的功能也可以用函数来实现。区别就是计算属性是基于依赖进行缓存的，在message改变之前，访问reversedMessage的值永远是固定的，而不需要再次进行计算, which is done by function.
+
+
+
