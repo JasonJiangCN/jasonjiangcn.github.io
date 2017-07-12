@@ -1,6 +1,5 @@
 
 <main class="content" role="main">
-
     <% page.posts.each(function(post) { %>
     <article class="post">
 
@@ -20,7 +19,7 @@
                 Post on<span class="fa fa-clock-o"></span>
                 <time datetime="<%= date_xml(post.date) %>"
                       itemprop="datePublished"><%= date(post.date, null) %></time>
-            </div>
+                </div>
         </header>
         <section class="post-excerpt">
             <p>
