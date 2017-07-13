@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>回调函数总结 | Jason&#39;s Blog</title>
+  <title>Vue实例笔记 | Jason&#39;s Blog</title>
   <meta name="description" content="你皮任你皮，把你当瓜皮" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -158,7 +158,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">回调函数总结</a></li>
+                        <li id="navbar-title"><a href="#">Vue实例笔记</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -207,37 +207,26 @@
                   <div class="tag-tile">
                       
                   </div>
-                <h1 class="post-title" style="margin: 14px 0;color:#50585D">回调函数总结</h1>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">Vue实例笔记</h1>
 
                     <div class="post-meta">
                         Post on<span class="fa fa-clock-o"></span>
-                        <time datetime="2017-07-11T07:06:16.000Z"
-                              itemprop="datePublished">2017-07-11</time>
+                        <time datetime="2017-07-13T06:23:35.000Z"
+                              itemprop="datePublished">2017-07-13</time>
                     </div>
     </span>
 
         <section class="post-content">
-            <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>在计算机程序设计中，回调函数，或简称回调（Callback 即call then back 被主函数调用运算后会返回主函数），是指通过函数参数传递到其它代码的，某一块可执行代码的引用。这一设计允许了底层代码调用在高层定义的子程序。</p>
-<h2 id="通俗来说"><a href="#通俗来说" class="headerlink" title="通俗来说.."></a>通俗来说..</h2><p>主程序A调用另一个程序B，但是B得到的信息不全，就要再去call另一个函数。这个函数就是回调函数。</p>
-<p>本来是A来调用B，但是B最终又调用了A的信息，这个过程被称为回调。</p>
-<h1 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//待解决的作业</span></div><div class="line">String aHomeWork = <span class="string">"1+1=?"</span></div><div class="line"><span class="comment">//室友写出答案</span></div><div class="line">String theAnswer = roomMate.getAnswer(aHomeWork);</div><div class="line"><span class="comment">//该同学调用，自己把答案写到作业本。（也即是这个步骤不给调用了）</span></div><div class="line">student.doHomeWork(aHomeWork, theAnswer);</div><div class="line"><span class="comment">//做作业必须得调用这个方法，而根据需求这个方法必须由室友去调用。那很显然，该室友得保持一个该同学的引用，才能正常调用啊。</span></div><div class="line"><span class="comment">//灯灯灯~</span></div><div class="line"><span class="comment">//室友说，那你在调用getAnswer方法的时候，除了传入作业，还需要把自己的引用放里面。这样我做完了，直接调用你的做作业方法就行了。</span></div><div class="line">roomMate.getAnswer(aHomeWork,student);</div></pre></td></tr></table></figure>
-<p>完整代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doHomeWork</span><span class="params">(String homeWork, String answer)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"作业本"</span>);</div><div class="line">        <span class="keyword">if</span>(answer != <span class="keyword">null</span>) &#123;</div><div class="line">            System.out.println(<span class="string">"作业："</span>+homeWork+<span class="string">" 答案："</span>+ answer);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(<span class="string">"作业："</span>+homeWork+<span class="string">" 答案："</span>+ <span class="string">"(空白)"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Student student = <span class="keyword">new</span> Student();</div><div class="line"></div><div class="line">        String aHomeWork = <span class="string">"1+1=?"</span>;</div><div class="line"></div><div class="line">        RoomMate roomMate = <span class="keyword">new</span> RoomMate();</div><div class="line">        roomMate.getAnswer(aHomeWork,student);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>RoomMate</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RoomMate</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getAnswer</span><span class="params">(String homework, Student student)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="string">"1+1=?"</span>.equals(homework)) &#123;</div><div class="line">            student.doHomeWork(homework, <span class="string">"2"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            student.doHomeWork(homework, <span class="string">"(空白)"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这位学生告诉室友要做什么作业，并把自己的引用也给了室友。该室友得到作业，做完后直接引用该学生并调用其做作业的方法，完成代写作业的任务。</p>
-</blockquote>
-<h1 id="To-be-continued"><a href="#To-be-continued" class="headerlink" title="To be continued.."></a>To be continued..</h1>
+            
         </section>
         <hr/>
         <nav class="pagination" style="width:auto" role="pagination">
             
-            <a data-pjax class="newer-posts" href="/2017/07/11/jsCompare/">← Prev Post</a>
+            <a style="cursor:default" class="newer-posts" href="#">This is the First Post</a>
             
             <a class="share-button" data-original-title title>Share this Post</a>
             
-            <a data-pjax class="older-posts" href="/2017/05/28/jquery/">Next Post →</a>
+            <a data-pjax class="older-posts" href="/2017/07/12/Vue/">Next Post →</a>
             
         </nav>
         <br/>
