@@ -494,3 +494,208 @@ var vm = new Vue({
 
 
 
+### Computed和Watched属性
+
+```jsx
+var vm = new Vue({
+  el: '#demo',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar'
+  },
+  watch: {
+    firstName: function (val) {
+      this.fullName = val + ' ' + this.lastName
+    },
+    lastName: function (val) {
+      this.fullName = this.firstName + ' ' + val
+    }
+  }
+})
+```
+
+上面的代码使用了watched属性，也可以起到监听和修改的作用，但是是命令式的和重复的
+
+而computed版本
+
+```jsx
+var vm = new Vue({
+  el: '#demo',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar'
+  },
+  computed: {
+    fullName: function () {
+      return this.firstName + ' ' + this.lastName
+    }
+  }
+})
+```
+
+### Setter
+
+在上面的情况里，computed默认只有getter
+
+也可以自己定义一个setter
+
+```jsx
+// ...
+computed: {
+  fullName: {
+    // getter
+    get: function () {
+      return this.firstName + ' ' + this.lastName
+    },
+    // setter
+    set: function (newValue) {
+      var names = newValue.split(' ')
+      this.firstName = names[0]
+      this.lastName = names[names.length - 1]
+    }
+  }
+}
+// ...
+```
+
+现在可以通过更新fullname来更新first name和last name
+
+### Watch 选项
+
+计算属性在大多数情况下更合适，但是watch是一个更通用的选项来相应数据的变化，最大的优点是可以执行异步操作（访问一个API）
+
+例子，来自vuejs.org
+
+```jsx
+<!-- Since there is already a rich ecosystem of ajax libraries    -->
+<!-- and collections of general-purpose utility methods, Vue core -->
+<!-- is able to remain small by not reinventing them. This also   -->
+<!-- gives you the freedom to just use what you're familiar with. -->
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+<script>
+var watchExampleVM = new Vue({
+  el: '#watch-example',
+  data: {
+    question: '',
+    answer: 'I cannot give you an answer until you ask a question!'
+  },
+  watch: {
+    // 如果 question 发生改变，这个函数就会运行
+    question: function (newQuestion) {
+      this.answer = 'Waiting for you to stop typing...'
+      this.getAnswer()
+    }
+  },
+  methods: {
+    // _.debounce 是一个通过 lodash 限制操作频率的函数。
+    // 在这个例子中，我们希望限制访问yesno.wtf/api的频率
+    // ajax请求直到用户输入完毕才会发出
+    // 学习更多关于 _.debounce function (and its cousin
+    // _.throttle), 参考: https://lodash.com/docs#debounce
+    getAnswer: _.debounce(
+      function () {
+        if (this.question.indexOf('?') === -1) {
+          this.answer = 'Questions usually contain a question mark. ;-)'
+          return
+        }
+        this.answer = 'Thinking...'
+        var vm = this
+        axios.get('https://yesno.wtf/api')
+          .then(function (response) {
+            vm.answer = _.capitalize(response.data.answer)
+          })
+          .catch(function (error) {
+            vm.answer = 'Error! Could not reach the API. ' + error
+          })
+      },
+      // 这是我们为用户停止输入等待的毫秒数
+      500
+    )
+  }
+})
+</script>
+```
+
+#### 异步操作
+
+异步操作就是指，当程序开始执行的时候，先执行第一段，再执行第二段
+
+
+
+例如读取修改一个文件，程序先访问系统API来访问程序，此时程序会进行其他的操作，待操作系统返回这个文件的时候再进行修改的操作。
+
+相对的，同步操作就是指连续执行的程序，当系统进行访问的时候，程序只能干等着。
+
+> JavaScript中的异步操作是通过回调函数实现的
+
+
+
+# Class与Style
+
+## 绑定HTML class
+
+```html
+<div v-bind:class="{ active: isActive }">
+  
+</div>
+
+<!-- v-bind也可以与普通class属性并存-->
+< div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">
+  
+<!--
+在如下的vue实例中
+data: {
+  isActive: true,
+  hasError: false
+}
+这段代码会被渲染为
+<div class="static active"></div>
+如果hasError为true，会被渲染为
+static active text-danger
+-->
+</div>
+
+<!-- 也可以直接绑定一个对象 -->
+<div v-bind:class="classObject"></div>
+
+<!-- 
+data: {
+  isActive: true,
+  error: null
+},
+computed: {
+  classObject: function () {
+    return {
+      active: this.isActive && !this.error,
+      'text-danger': this.error && this.error.type === 'fatal',
+    }
+  }
+}
+-->
+
+```
+
+## 数组
+
+也可以把一个数组传给v-bind
+
+```html
+<div v-bind:class="[activeClass, errorClass]">
+```
+
+也可以用三元表达式
+
+```html
+<div v-bind:class="[isActive ? activeClass : '', errorClass]">
+```
+
+也可以在数组语法中使用对象语法
+
+```html
+<div v-bind:class="[{ active: isActive }, errorClass">
+  
+</div>
+```
+
