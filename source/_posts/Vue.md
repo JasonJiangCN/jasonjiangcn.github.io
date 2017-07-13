@@ -699,3 +699,67 @@ computed: {
 </div>
 ```
 
+
+
+## 绑定内联样式
+
+### 对象语法
+
+`v-bind:style` 虽然看起来像css，但实际上是一个JavaScript对象。
+
+```html
+<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+```
+
+当然，类似上面的情况，也可以直接绑定一个对象或者一个数组
+
+### 自动添加前缀
+
+当需要使用特定前缀的css属性时，Vue会自动侦测并添加。
+
+### 多重值
+
+在2.3版本之后可以为style提供一个包含多个值的数组
+
+```html
+<div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">
+```
+
+这个会渲染数组中最后一个被浏览器支持的值。
+
+# 条件渲染
+
+```html
+<h1 v-if="conditionA">
+  A
+</h1>
+<h1 v-else-if="conditionB">
+  B
+</h1>
+<h1 v-else>
+  Undefined
+</h1>
+```
+
+## 用key属性来管理可以复用的元素
+
+```html
+<template v-if="loginType === 'username'">
+  <label>Username</label>
+  <input placeholder="Enter your username">
+</template>
+<template v-else>
+  <label>Email</label>
+  <input placeholder="Enter your email address">
+</template>
+```
+
+在上面的代码中，label和input两个元素在if和else之间切换时，是会复用之前的元素的。切换时input标签内已经输入的内容不会消失，仅改变placeholder的内容和label标签里面的内容
+
+
+
+如果不想复用，在不想复用的标签里添加一个具有唯一值的`key`属性即可。
+
+## v-show
+
+v-show和v-if效果差不多，区别是v-show的元素最终会被渲染并保留在DOM中，v-show只是简单的切换CSS的display属性
