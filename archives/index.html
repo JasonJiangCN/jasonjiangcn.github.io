@@ -43,6 +43,10 @@
                                 <div class="mp-scroll">
                                 
                                 <li class="search-archive-li mp-pjax">
+                                    <a href="/2017/08/14/findMissing/">算法：找到连续数组缺失的两个数</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
                                     <a href="/2017/07/25/internCnclsn/">Internship Conclusion for SDJZU</a>
                                 </li>
                                 
@@ -113,6 +117,11 @@
                             <ul>
                                 <div class="mp-scroll">
                                 
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/算法/">&nbsp;&nbsp;&nbsp;算法</a>
+                                    <small>1</small>
+                                </li>
+                                
                                 </div>
                             </ul>
                         </div>
@@ -127,6 +136,8 @@
         </nav>
         <div id="pjax">
             <div class="pjax-hidden" style="display: none">
+                
+                    <a  data-pjax href="/2017/08/14/findMissing/">算法：找到连续数组缺失的两个数</a>
                 
                     <a  data-pjax href="/2017/07/25/internCnclsn/">Internship Conclusion for SDJZU</a>
                 
@@ -147,6 +158,8 @@
                     <a  data-pjax href="/2017/04/11/hello-world/">这是一篇文章</a>
                 
                 
+                
+                    <a data-pjax href="/tags/算法/">&nbsp;&nbsp;算法</a>
                 
                 <a data-pjax class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a>
             </div>
@@ -201,6 +214,39 @@
 <!---->
   
 <main class="content" role="main">
+    
+    <article class="post">
+
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
+                <a data-pjax href='/tags/算法/'>算法</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2017/08/14/findMissing/">算法：找到连续数组缺失的两个数</a>
+            </h1>
+
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2017-08-14T14:02:26.000Z"
+                      itemprop="datePublished">2017-08-14</time>
+                </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                在连续的数组里缺失了2个数，找到一种O(logN)的方法找到这两个
+初步想法二分，判断左右部分的首尾差是否相同，如果相同则两边各有一个缺失的数，如果不一样说明集中在两边
+递归查找直到只剩4个，判断出左右后可以直接得出缺失的数
+123456789101112131415161718192021public static int[] getNext(int[] left, int[] right) &#123;    if ((left[l
+                
+            </p>
+            
+        </section>
+    </article>
     
     <article class="post">
 
