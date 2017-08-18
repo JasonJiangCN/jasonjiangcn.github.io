@@ -18,6 +18,12 @@ tags: 算法
 
 递归查找直到只剩4个，判断出左右后可以直接得出缺失的数
 
+
+
+
+
+# 算法 （未完成）
+
 ```java
 public static int[] getNext(int[] left, int[] right) {
     if ((left[left.length() - 1] 
