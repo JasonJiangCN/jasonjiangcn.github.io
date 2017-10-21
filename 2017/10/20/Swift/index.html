@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>这是一篇文章 | Jason&#39;s Blog</title>
+  <title>Swift笔记 | Jason&#39;s Blog</title>
   <meta name="description" content="你皮任你皮，把你当瓜皮" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -191,7 +191,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">这是一篇文章</a></li>
+                        <li id="navbar-title"><a href="#">Swift笔记</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -239,27 +239,81 @@
     <span class="post-meta">
                   <div class="tag-tile">
                       
+                      
+                      <a data-pjax href='/tags/Swift/' style='color:#D5D5D5'>Swift</a>
+                      
+                      
                   </div>
-                <h1 class="post-title" style="margin: 14px 0;color:#50585D">这是一篇文章</h1>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">Swift笔记</h1>
 
                     <div class="post-meta">
                         Post on<span class="fa fa-clock-o"></span>
-                        <time datetime="2017-04-11T20:06:16.000Z"
-                              itemprop="datePublished">2017-04-11</time>
+                        <time datetime="2017-10-21T02:09:12.000Z"
+                              itemprop="datePublished">2017-10-20</time>
                     </div>
     </span>
 
         <section class="post-content">
-            <h2 id="欢迎"><a href="#欢迎" class="headerlink" title="欢迎"></a>欢迎</h2><p>欢迎来到我的Blog。</p>
-<p>本站由Github Pages托管，由Hexo驱动。</p>
+            <p>#Swift基本类型</p>
+<p>##变量和常量</p>
+<p>let 常量</p>
+<p>var 变量</p>
+<p>可以同时声明多个变量</p>
+<p><code>var x=1, y =2 , z = 3</code></p>
+<p><strong>Swift是一个强类型语言</strong></p>
+<p>type inference: 赋值时Swift会自动根据初始值指定类型</p>
+<p><strong>按住Option键/Alt键，将光标放在变量上即可显示变量类型</strong></p>
+<p><code>let website: String = &quot;www.jasonjx.com&quot;</code>可以显式的声明常量或者变量</p>
+<p><code>var a,b,c : Double</code>多个变量同时声明类型</p>
+<h1 id="常用类型"><a href="#常用类型" class="headerlink" title="常用类型"></a>常用类型</h1><ul>
+<li>Int </li>
+<li>Float, Double</li>
+<li>Boolean</li>
+<li>String</li>
+<li>Tuple</li>
+</ul>
+<p>##整型</p>
+<p>整型的长度是32/64位，取决于系统是32还是64位的</p>
+<p>UInt类型是无符号的数，可以表示的正数是Int的两倍，最小是0</p>
+<p>Int8： 8位的整数（最大256） Int16， Int32， Int64</p>
+<p>可以把二进制 16进制赋值给Int</p>
+<p>甚至可以<code>let bigNum = 100_100_100</code>实际上就是100100100，可以加下划线增加可读性</p>
+<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><p>Float是32位 Double是64位</p>
+<p>type inference默认Double类型</p>
+<p>不同类型之间不能直接运算，没有隐式类型转换</p>
+<p>手动类型转换 <code>Double(a)</code></p>
+<p><strong>CGFloat </strong> Configure Graphic类型的Float</p>
+<p><code>UIColor(red: red ........)</code> 这里的red类型必须为CGFloat类型</p>
+<h2 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h2><p><code>Bool</code>布尔类型</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> imTrue &#123; <span class="comment">//if后面的条件可以不用加括号</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"I'm True"</span>)</div><div class="line">&#125; <span class="comment">//即使只有一句话也必须加大括号</span></div></pre></td></tr></table></figure>
+<h2 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h2><p>元组类型</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> point ( <span class="number">5</span>, <span class="number">2</span> )</div><div class="line"><span class="keyword">var</span> httpResponse( <span class="number">404</span>, <span class="string">"Not Found"</span>)</div></pre></td></tr></table></figure>
+<p>可以有任意多个值</p>
+<p>显式指定元组<code>var a : (int, String) = (1,&quot;A&quot;)</code></p>
+<p><code>var (staus, msg) = httpResponse</code></p>
+<p><code>msg</code>  // &lt;— “Not Found”</p>
+<p>定义的元组里的变量其实可以当做全局变量访问</p>
+<p>可以对各个分量命名</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> point3 = (x:<span class="number">3</span>, y:<span class="number">2</span>)</div><div class="line">point3.x</div><div class="line"><span class="keyword">let</span> point4: (x:<span class="type">Int</span>, y: <span class="type">Int</span>) = (<span class="number">4</span>,<span class="number">5</span>)</div><div class="line">point4.x</div></pre></td></tr></table></figure>
+<p>解包的时候可以只解一部分</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> loginResult = (<span class="literal">true</span>, <span class="string">"hahaha"</span>)</div><div class="line"><span class="keyword">let</span> (isLoginSuccess, <span class="number">_</span>) = loginResult</div><div class="line"><span class="comment">//此时后面的字符串就没有被解包存储</span></div></pre></td></tr></table></figure>
+<p>适合轻量级的数据</p>
+<h2 id="变量名-Print-注释"><a href="#变量名-Print-注释" class="headerlink" title="变量名 Print 注释"></a>变量名 Print 注释</h2><p>Swift规定类型名称首字母大写</p>
+<p>变量 函数名 首字母应该小写</p>
+<p>还可以用中文 emoji当变量名</p>
+<h3 id="Print"><a href="#Print" class="headerlink" title="Print"></a>Print</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(x, y, z)	<span class="comment">//x y z</span></div><div class="line"><span class="built_in">print</span>(x, y, z, separator:<span class="string">"-"</span>, terminator:<span class="string">" :)"</span>) <span class="comment">//x-y-z :)</span></div></pre></td></tr></table></figure>
+<p>terminator 默认是回车</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">1</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(x)</span> Haha"</span>)  <span class="comment">//1 Haha</span></div></pre></td></tr></table></figure>
 
         </section>
         <hr/>
         <nav class="pagination" style="width:auto" role="pagination">
             
-            <a data-pjax class="newer-posts" href="/2017/05/24/javascript-note/">← Prev Post</a>
+            <a style="cursor:default" class="newer-posts" href="#">This is the First Post</a>
             
             <a class="share-button" data-original-title title>Share this Post</a>
+            
+            <a data-pjax class="older-posts" href="/2017/08/14/findMissing/">Next Post →</a>
             
         </nav>
         <br/>
