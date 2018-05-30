@@ -61,7 +61,9 @@ facile 表面的
 facilitate 促进
 faction 派系
 
-
+# lumin 光
+illuminati 智者
+illuminate 阐明
 # fal 犯错
 fallacious 谬论的，不合逻辑的
 
@@ -75,4 +77,22 @@ fortify 加固
 # cru 十字交叉的
 excruciate 折磨
 
+# mur 墙
+immure 监禁 禁闭
+mural 壁画
+
+# mut 变
+mutate 突变
+immutable 不可改变的
+
+# emper 命令 统治
+imperative 命令的 强制的
+imperial 帝国的 **特大的**
+imperious 傲慢的
+
+# pet 找
+impetuous 冲动的 鲁莽的
+
+# plac 取悦
+implacable 无法平息的 固执的
 

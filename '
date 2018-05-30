@@ -71,8 +71,6 @@ boorish
 churlish
 crass
 flippancy
-impertinent
-impudent
 # 有教养的 有礼貌的
 decent
 genteel
@@ -94,7 +92,7 @@ constrain
 barricade
 clog
 hamper
-impede
+
 # 振奋
 bolster
 bracing
@@ -131,8 +129,7 @@ entrap 诱骗
 gull
 humbug 骗子
 hoodwink
-hoax
-impostor
+
 
 # 易怒，易激动，脾气不好的
 choleric
@@ -203,7 +200,6 @@ downplay 轻描淡写
 flout
 hauteur 傲慢自大
 hubris 狂妄自大
-imperious 傲慢
 # 掩饰
 dissemble
 //TODO
@@ -220,7 +216,6 @@ divestiture
 # 固执
 dogged
 diehard
-implacable
 
 # 装饰
 enamal
@@ -252,7 +247,6 @@ fervid
 # 难懂的
 esoteric
 hermetic
-impenetrable
 # 弄懂, 理解
 fathom
 
@@ -357,7 +351,6 @@ colossal
 elephantine
 gargantuan
 gigantic
-imperial
 
 # 闪光
 gleam
@@ -385,14 +378,4 @@ hidebound
 # 丑 丑陋 不好看
 hideous
 grotesque
-
-# 古老的 老的
-hoary
-immemorial
-
-# 完美的
-unblemished
-immaculate
-impeccable
-
 
