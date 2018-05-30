@@ -50,3 +50,29 @@ disparate 不同的
 # solot solut 分开
 dissolute 放荡的 无节制的
 
+
+# extra
+extraneous 无关的，不重要的
+extravagent 挥霍的，过度的. //vag: 漫游
+
+# fac 脸face，做do
+facetious 轻浮的
+facile 表面的
+facilitate 促进
+faction 派系
+
+
+# fal 犯错
+fallacious 谬论的，不合逻辑的
+
+# fer 带来
+fertilize 使肥沃
+
+# fort 力量，强大
+effort
+fortify 加固
+
+# cru 十字交叉的
+excruciate 折磨
+
+
