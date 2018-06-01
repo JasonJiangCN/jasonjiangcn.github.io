@@ -32,8 +32,8 @@ censure
 chide
 excoriate
 fulminate
-
-
+impugn
+lambaste
 
 # 诽谤
 besmirch
@@ -73,6 +73,8 @@ crass
 flippancy
 impertinent
 impudent
+insolent
+
 # 有教养的 有礼貌的
 decent
 genteel
@@ -108,6 +110,8 @@ foster
 hasten 促进
 hearten
 hort -> hortative
+incubate 孵化，促进
+invigorate 
 # 甜蜜
 blandishment
 cloying
@@ -133,7 +137,7 @@ humbug 骗子
 hoodwink
 hoax
 impostor
-
+inveigle 诱骗
 # 易怒，易激动，脾气不好的
 choleric
 combustible
@@ -142,7 +146,7 @@ curmudgeon ,n.
 dyspeptic
 fractious 易怒，难以管束的
 fretful
-
+irascible
 
 # 焦虑
 compunciton
@@ -184,9 +188,10 @@ culminate 达到顶点
 crumple 弄皱
 corrugated 
 
-# 胆大的
+# 胆大的 大胆的
 brazen
 daredevil
+intrepid
 
 # 使 不安
 discombobulate
@@ -221,7 +226,7 @@ divestiture
 dogged
 diehard
 implacable
-
+intransigent
 # 装饰
 enamal
 emboss
@@ -233,6 +238,7 @@ enigma
 # 藏
 ensconce
 //TODO
+
 
 
 # 说明 阐述
@@ -247,7 +253,7 @@ dilate
 ebullient
 effervesce
 fervid
-
+incandescent
 
 # 难懂的
 esoteric
@@ -280,6 +286,8 @@ exalt
 # 轻浮的
 facetious
 frivolous
+jest 轻浮的态度，戏谑
+levity 轻浮
 # 调情
 flirt
 
@@ -295,8 +303,11 @@ feeble
 flag 变弱
 frail
 gossamer 薄弱的
-
-
+impuissance
+infirm
+languid
+languish
+languor
 # 易变的，多变的
 erratic
 fickle
@@ -305,6 +316,7 @@ fickle
 fawn
 flatter
 hagiographic 过分谄媚的
+ingratiating
 
 # 蹒跚
 falter
@@ -336,7 +348,7 @@ grandiose 浮夸的，自命不凡的
 # 疯狂，暴怒
 furor
 fury
-
+irate 极其愤怒的
 # 说，宣布，声称
 enunciate
 
@@ -396,3 +408,26 @@ immaculate
 impeccable
 
 
+# 开始 刚开始的
+inaugurate
+inception
+inchoate
+incipient
+
+# 激怒
+incense
+
+# 煽动
+incendiary
+incite
+instigate
+
+# 根深蒂固的 内在的 不能根除的
+inverterate
+iradicable
+ingrained
+immanent
+
+# 大量的 多的
+lavish
+legion

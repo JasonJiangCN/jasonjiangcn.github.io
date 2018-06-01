@@ -96,3 +96,39 @@ impetuous 冲动的 鲁莽的
 # plac 取悦
 implacable 无法平息的 固执的
 
+# cub 躺
+incubate 孵化 促进 培养 帮助
+
+# culp 错误 罪
+inculpate 归罪于
+
+# demn 伤害
+indemnity 赔偿
+
+# curr 跑 发生
+incursion 入侵
+
+# fus 流
+infuse 灌输
+
+# gen 产生 产出
+ingenious 聪明的 灵巧的
+
+# gest 带来 产生
+ingest 摄入 咽下
+
+# noc 伤害
+innocent 
+innocuous 无害的 不引起敌意的
+
+# vid 看
+invidious 令人反感的，羡慕嫉妒恨的
+
+# vig 生命
+invigorate 使精神，使强壮，鼓励
+
+# langu 虚弱
+languid 虚弱的
+languish 变的衰弱
+
+
