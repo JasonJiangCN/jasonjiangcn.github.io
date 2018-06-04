@@ -20,7 +20,13 @@ complaisance
 # 顺从
 complaisance
 compliant
-
+# 模仿
+imitate
+burlesque
+mimic
+mock
+parody
+pastiche
 
 # 批评
 barb
@@ -34,11 +40,11 @@ excoriate
 fulminate
 impugn
 lambaste
-
+pan
 # 诽谤
 besmirch
 caluminate
-
+obloquy
 # 喧闹
 bluster
 boisterous
@@ -53,7 +59,12 @@ cavil
 fastidious
 finicky
 fussy
-
+nitpick
+# 软的 柔软的
+limber
+limp
+lissome
+lithe
 
 
 # 灾难
@@ -74,7 +85,7 @@ flippancy
 impertinent
 impudent
 insolent
-
+loutish
 # 有教养的 有礼貌的
 decent
 genteel
@@ -97,6 +108,7 @@ barricade
 clog
 hamper
 impede
+manacle
 # 振奋
 bolster
 bracing
@@ -112,6 +124,7 @@ hearten
 hort -> hortative
 incubate 孵化，促进
 invigorate 
+plump
 # 甜蜜
 blandishment
 cloying
@@ -178,6 +191,16 @@ craven
 # 抚慰
 conciliate
 disarm
+pacify
+pacate
+mollift
+# 悲伤的 悲哀的 凄凉的
+plangent
+doleful
+dolorous
+plaintive
+poignant
+
 
 # 顶点
 crest
@@ -199,7 +222,7 @@ discompse
 disconcert
 dismay
 
-# 轻视,看不起，轻蔑
+# 轻视,看不起，轻蔑 傲慢
 condescending
 disdain
 disparge
@@ -209,6 +232,11 @@ flout
 hauteur 傲慢自大
 hubris 狂妄自大
 imperious 傲慢
+overweening 傲慢专横的
+overbearing
+patronize 以高人一等的态度对待
+pejorative
+peremptory
 # 掩饰
 dissemble
 //TODO
@@ -221,12 +249,13 @@ disseminate
 
 # 缺
 divestiture
-
+paucity
 # 固执
 dogged
 diehard
 implacable
 intransigent
+pertinacious
 # 装饰
 enamal
 emboss
@@ -245,6 +274,13 @@ ensconce
 elaborate
 elucidate
 illuminate
+opinae
+particularize
+
+# 偏袒
+partial
+partisan
+
 # 膨胀
 distend
 dilate
@@ -259,6 +295,8 @@ incandescent
 esoteric
 hermetic
 impenetrable
+occult
+opaque
 # 弄懂, 理解
 fathom
 
@@ -293,7 +331,7 @@ flirt
 
 # 争吵 争论
 fracas
-
+polemic
 
 # 傻，愚昧
 fatuous
@@ -308,6 +346,7 @@ infirm
 languid
 languish
 languor
+tenuous
 # 易变的，多变的
 erratic
 fickle
@@ -317,11 +356,15 @@ fawn
 flatter
 hagiographic 过分谄媚的
 ingratiating
+obsequious
+# 威胁
+menace
+minatory 带来威胁的
 
 # 蹒跚
 falter
 flounder
-
+lurch
 # 易碎, 碎
 fracture 碎
 fragile
@@ -345,6 +388,8 @@ garish
 gaudy 艳俗的 俗丽的
 grandiloquent
 grandiose 浮夸的，自命不凡的
+ostentatious 炫耀卖弄的
+pompous
 # 疯狂，暴怒
 furor
 fury
@@ -379,6 +424,7 @@ glisten
 cliche
 banal
 hackneyed
+platitude
 
 # 骚扰 烦扰
 harry
@@ -397,7 +443,7 @@ hidebound
 # 丑 丑陋 不好看
 hideous
 grotesque
-
+obstrusive
 # 古老的 老的
 hoary
 immemorial
@@ -413,7 +459,7 @@ inaugurate
 inception
 inchoate
 incipient
-
+outset
 # 激怒
 incense
 
@@ -431,3 +477,9 @@ immanent
 # 大量的 多的
 lavish
 legion
+plethora
+peck
+# 大杂烩
+hodgepodge
+medley
+montage

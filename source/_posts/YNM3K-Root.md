@@ -92,7 +92,7 @@ imperious 傲慢的
 
 # pet 找
 impetuous 冲动的 鲁莽的
-
+perpetual 永恒的，不断的
 # plac 取悦
 implacable 无法平息的 固执的
 
@@ -131,4 +131,24 @@ invigorate 使精神，使强壮，鼓励
 languid 虚弱的
 languish 变的衰弱
 
+# mal 坏 恶
+maladroit 笨拙的
+malaise 不舒服
+malcontent 不满的
+malicious 恶意的
+malign 恶意的 诽谤
+malinger 装病
+malodorous 恶臭的
+malfeasance 非法行为
 
+# hap 机会 运气
+mishap 不幸
+
+# pens 重量，花费
+pensive 沉思的
+
+# empt 拿，获得
+peremptory 不容反抗的，断然的，专横傲慢的
+
+# coct 煮熟 调配
+precocious 早熟的
