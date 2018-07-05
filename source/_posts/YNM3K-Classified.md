@@ -28,7 +28,7 @@ mock
 parody
 pastiche
 
-# 批评
+# 批评 斥责 责难
 barb
 belabor
 berate
@@ -41,6 +41,12 @@ fulminate
 impugn
 lambaste
 pan
+rant
+ream
+reprehend
+reproach
+reproof
+reprove 温柔的责备
 # 诽谤
 besmirch
 caluminate
@@ -151,6 +157,7 @@ hoodwink
 hoax
 impostor
 inveigle 诱骗
+swindler 骗子
 # 易怒，易激动，脾气不好的
 choleric
 combustible
@@ -188,12 +195,14 @@ cowardice
 cower
 craven
 
-# 抚慰
+# 抚慰 安抚 安慰
 conciliate
 disarm
 pacify
 pacate
 mollift
+reassure
+soothe
 # 悲伤的 悲哀的 凄凉的
 plangent
 doleful
@@ -237,6 +246,9 @@ overbearing
 patronize 以高人一等的态度对待
 pejorative
 peremptory
+scorn
+snobbish
+snub
 # 掩饰
 dissemble
 //TODO
@@ -250,6 +262,8 @@ disseminate
 # 缺
 divestiture
 paucity
+scant
+skimp
 # 固执
 dogged
 diehard
@@ -276,7 +290,7 @@ elucidate
 illuminate
 opinae
 particularize
-
+ravel
 # 偏袒
 partial
 partisan
@@ -326,13 +340,15 @@ facetious
 frivolous
 jest 轻浮的态度，戏谑
 levity 轻浮
+rakish 放荡的
+rapscallion 流氓
 # 调情
 flirt
 
 # 争吵 争论
 fracas
 polemic
-
+row
 # 傻，愚昧
 fatuous
 
@@ -394,6 +410,7 @@ pompous
 furor
 fury
 irate 极其愤怒的
+rage
 # 说，宣布，声称
 enunciate
 
@@ -462,7 +479,22 @@ incipient
 outset
 # 激怒
 incense
+rile
+roil
 
+
+# 吸引人的 迷人 迷住
+riveting
+engrossing
+enthralling
+immersing
+intriguing
+
+# 后悔
+rue
+penitence
+remorse
+repentance
 # 煽动
 incendiary
 incite
@@ -479,6 +511,8 @@ lavish
 legion
 plethora
 peck
+scads
+slew
 # 大杂烩
 hodgepodge
 medley

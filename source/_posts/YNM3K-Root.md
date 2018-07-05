@@ -50,7 +50,6 @@ disparate 不同的
 # solot solut 分开
 dissolute 放荡的 无节制的
 
-
 # extra
 extraneous 无关的，不重要的
 extravagent 挥霍的，过度的. //vag: 漫游
