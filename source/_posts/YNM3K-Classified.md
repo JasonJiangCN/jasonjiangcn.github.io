@@ -411,6 +411,7 @@ furor
 fury
 irate 极其愤怒的
 rage
+fractious 愤怒的
 # 说，宣布，声称
 enunciate
 
